@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANKGURU" parallel="false">
-  <test name="Run on Chrome">
+  <test name="Run on Firefox">
   
     <classes>
-      <class name="com.bankguru.login.Login_01_ValidateLoginForm"></class>
+      <class name="com.bankguru.account.Account_01_RegisterAndLoginToSystem"></class>
     </classes>
     
     
