@@ -3,8 +3,12 @@ package commons;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractPage {
 	
@@ -58,6 +62,86 @@ public class AbstractPage {
 		driver.findElement(By.xpath(locator)).clear();
 		driver.findElement(By.xpath(locator)).sendKeys(key);
 	}
+	
+	public void selectItemInHtmlDropdown(WebDriver driver, String locator, String valueInDropdown) {
+		Select select = new Select(driver.findElement(By.xpath(locator)));
+		select.selectByVisibleText(valueInDropdown);
+	}
+	
+	public String getTextItemInHtmlDropdown(WebDriver driver, String locator) {
+		Select select = new Select(driver.findElement(By.xpath(locator)));
+		return select.getFirstSelectedOption().getText();
+	}
+	
+	public void selectItemFromCustomDropDownList(WebDriver driver,String parentXpath, String childXpath, String expected) {
+		JavascriptExecutor javaExecutor;
+		javaExecutor = (JavascriptExecutor) driver;
+		WebDriverWait waitExplicit;
+		waitExplicit = new WebDriverWait(driver, 60);
+		
+		WebElement element = driver.findElement(By.xpath(parentXpath));
+		javaExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
+		
+		System.out.println("CLICK SUCCESSFULLY!!!");
+		
+		List <WebElement> childList = driver.findElements(By.xpath(childXpath));
+		waitExplicit.until(ExpectedConditions.visibilityOfAllElements(childList));
+		
+		
+		for(WebElement child: childList) {
+			String itemSelect = child.getText();
+			
+//			System.out.println("ITEM IS: " + itemSelect);
+			if(itemSelect.equals(expected))
+			{
+				javaExecutor.executeScript("arguments[0].scrollIntoView(true);", child);
+				child.click();
+				break;
+			}
+				
+		}
+		
+	}
+	
+	public String getAttributeValue(WebDriver driver, String locator, String nameAttribute) {
+		return driver.findElement(By.xpath(locator)).getAttribute(nameAttribute);
+	}
+	
+	public String getTextInElement(WebDriver driver, String locator) {
+		return driver.findElement(By.xpath(locator)).getText();
+	}
+	
+	public void checkTheCheckbox(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		if(!element.isSelected()) {
+			element.click();
+		}
+	}
+	
+	public void uncheckTheCheckbox(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		if(element.isSelected()) {
+			element.click();
+		}
+	}
+	
+	public boolean isControlDisplayed(WebDriver driver, String locator) {
+		return driver.findElement(By.xpath(locator)).isDisplayed();
+	}
+	
+	public boolean isControlSelected(WebDriver driver, String locator) {
+		return driver.findElement(By.xpath(locator)).isSelected();
+	}
+	
+	public boolean isControlEnable(WebDriver driver, String locator) {
+		return driver.findElement(By.xpath(locator)).isEnabled();
+	}
+	//window + user Actions + Upload + JavascriptExcuter + Wait
+	
+	
+	
+	
 	
 	
 	
