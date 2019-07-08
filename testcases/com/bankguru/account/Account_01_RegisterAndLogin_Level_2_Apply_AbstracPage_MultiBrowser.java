@@ -1,6 +1,9 @@
 package com.bankguru.account;
 
 import org.testng.annotations.Test;
+
+import commons.AbstractPage;
+
 import org.testng.annotations.BeforeClass;
 
 import java.util.Random;
@@ -12,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_RegisterAndLoginToSystem {
+public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser extends AbstractPage {
 
 	WebDriver driver;
 
@@ -31,7 +34,10 @@ public class Account_01_RegisterAndLoginToSystem {
 	@Test
 	public void TC_01_Register() {
 		String mailRegister = "luongtuan" + randomNumber() + "@gmail.com";
-
+		//Apply AbstractPage
+		openURL(driver, "http://demo.guru99.com/v4/");
+		
+		//Apply Step-by-Step
 		driver.get("http://demo.guru99.com/v4/");
 
 		urlHompage = driver.getCurrentUrl();
@@ -70,16 +76,15 @@ public class Account_01_RegisterAndLoginToSystem {
 
 		Assert.assertTrue(driver.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]"))
 				.isDisplayed());
-		System.out.println(driver.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]")).getText());
+		System.out.println(driver
+				.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]")).getText());
 		System.out.println("HOM PAGE IS DISPLAY");
-		
-		//Verify user
-		
-		Assert.assertTrue(driver.findElement(By.xpath("//td[text()='Manger Id : " + userIDRegister + "']")).isDisplayed());
+
+		// Verify user
+
+		Assert.assertTrue(
+				driver.findElement(By.xpath("//td[text()='Manger Id : " + userIDRegister + "']")).isDisplayed());
 		System.out.println("USER IS VERIFY");
-		
-		
-		
 
 	}
 
