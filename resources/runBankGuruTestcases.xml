@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANKGURU" parallel="false">
-  <test name="Run on Firefox">
-  
-    <classes>
-      <class name="com.bankguru.account.Account_01_RegisterAndLoginToSystem"></class>
-    </classes>
-    
-    
-  </test> <!-- Test -->
+	<test name="Run on Firefox">
+
+		<classes>
+			<class
+				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class>
+			<class
+				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_1"></class>
+
+		</classes>
+
+
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

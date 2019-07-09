@@ -1,6 +1,7 @@
 package commons;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -164,6 +165,11 @@ public class AbstractPage {
 			e.getMessage();
 			return false;
 		}
+	}
+	
+	public int randomNumber() {
+		Random rd = new Random();
+		return rd.nextInt(10000);
 	}
 
 }

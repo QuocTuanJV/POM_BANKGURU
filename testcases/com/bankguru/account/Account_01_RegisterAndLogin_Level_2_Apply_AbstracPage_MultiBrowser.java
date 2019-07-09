@@ -15,17 +15,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser extends AbstractPage {
+import commons.AbstractPage;
+
+public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser {
 
 	WebDriver driver;
 
 	private String userIDRegister;
 	private String passwordRegister;
 	private String urlHompage;
+	
+	private AbstractPage abstractPage;
+	
+	
 
 	@BeforeClass
 	public void beforeClass() {
 		driver = new FirefoxDriver();
+		abstractPage = new AbstractPage();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
@@ -33,28 +40,26 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 
 	@Test
 	public void TC_01_Register() {
-		String mailRegister = "luongtuan" + randomNumber() + "@gmail.com";
-		//Apply AbstractPage
-		openURL(driver, "http://demo.guru99.com/v4/");
+		String mailRegister = "luongtuan" + abstractPage.randomNumber() + "@gmail.com";
+		//Open link
+		abstractPage.openURL(driver, "http://demo.guru99.com/v4/");
 		
-		//Apply Step-by-Step
-		driver.get("http://demo.guru99.com/v4/");
+		//get current Link
+		urlHompage = abstractPage.getCurrentURL(driver);
 
-		urlHompage = driver.getCurrentUrl();
-
-		// click here
-		driver.findElement(By.xpath("//a[text()='here']")).click();
-
+		//click element
+		abstractPage.clickToElement(driver, "//a[text()='here']");
 		System.out.println("--CLICK SUCCESS--");
 
 		// Send mail
-		driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(mailRegister);
+		abstractPage.sendkeyToElement(driver, "//input[@name='emailid']", mailRegister);
+	
 		// click submit
-		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
+		abstractPage.clickToElement(driver, "//input[@name='btnLogin']");
 
 		// get UserId and Password
-		userIDRegister = driver.findElement(By.xpath("//td[text()='User ID :']//following-sibling::td")).getText();
-		passwordRegister = driver.findElement(By.xpath("//td[text()='Password :']//following-sibling::td")).getText();
+		userIDRegister= abstractPage.getTextInElement(driver, "//td[text()='User ID :']//following-sibling::td");
+		passwordRegister = abstractPage.getTextInElement(driver, "//td[text()='Password :']//following-sibling::td");
 
 		System.out.println(userIDRegister + "-------" + passwordRegister);
 
@@ -63,14 +68,14 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 	@Test
 	public void TC_02_LoginWithAboveInformation() {
 		// Back to home page to login form
-		driver.get(urlHompage);
+		abstractPage.openURL(driver, urlHompage);
+		
 
 		// send UserID and Password
-		driver.findElement(By.xpath("//input[@name = 'uid']")).sendKeys(userIDRegister);
-		driver.findElement(By.xpath("//input[@name = 'password']")).sendKeys(passwordRegister);
-
+		abstractPage.sendkeyToElement(driver, "//input[@name = 'uid']", userIDRegister);
+		abstractPage.sendkeyToElement(driver, "//input[@name = 'password']", passwordRegister);
 		// Click button Login
-		driver.findElement(By.xpath("//input[@name = 'btnLogin']")).click();
+		abstractPage.clickToElement(driver, "//input[@name = 'btnLogin']");
 
 		// Verify home page display
 
@@ -92,9 +97,6 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 	public void afterClass() {
 	}
 
-	public int randomNumber() {
-		Random rd = new Random();
-		return rd.nextInt(10000);
-	}
+	
 
 }
