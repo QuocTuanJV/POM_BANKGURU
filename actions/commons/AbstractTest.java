@@ -1,5 +1,36 @@
 package commons;
 
-public class AbstractTest {
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class AbstractTest {
+	
+//	public WebDriver driver;
+	public void openMultiBrowser(String nameBrowser, WebDriver driver) {
+		if(nameBrowser.equals("firefox")) {
+//			set path to geckodriver with firefox >= 48
+//			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
+			driver = new FirefoxDriver();
+		} else if(nameBrowser.equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
+//			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
+//			System.setProperty("webdriver.opera.driver", ".\\lib\\operadriver.exe");
+//			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");	
+			driver = new ChromeDriver();
+		} else if(nameBrowser.equals("chromeheadless")) {
+			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("headless");
+			options.addArguments("window-size=1366x768");
+			driver = new ChromeDriver(options);
+		}
+				
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
+	}
 }

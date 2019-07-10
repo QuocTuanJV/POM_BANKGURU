@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANKGURU" parallel="false">
 	<test name="Run on Firefox">
-
+	<parameter name="browser" value ="firefox"/>
 		<classes>
 			<class
 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class>
-			<class
-				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_1"></class>
+
 
 		</classes>
 
 
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+	</test> 
+	
+<!-- 	<test name="Run on Chrome"> -->
+<!-- 	<parameter name="browser" value ="chrome"/> -->
+<!-- 		<classes> -->
+<!-- 			<class -->
+<!-- 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+
+<!-- 		</classes> -->
+
+
+<!-- 	</test>  -->
+	
+<!-- 	<test name="Run on Chrome Headless"> -->
+<!-- 	<parameter name="browser" value ="chromeheadless"/> -->
+<!-- 		<classes> -->
+<!-- 			<class -->
+<!-- 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+
+<!-- 		</classes> -->
+
+<!-- 	</test>  -->
+	
+	
+</suite> 

@@ -1,23 +1,23 @@
 package com.bankguru.account;
 
-import org.testng.annotations.Test;
-
-import commons.AbstractPage;
-
-import org.testng.annotations.BeforeClass;
-
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import commons.AbstractPage;
+import commons.AbstractTest;
 
-public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser {
+
+public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser  {
 
 	WebDriver driver;
 
@@ -26,16 +26,21 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 	private String urlHompage;
 	
 	private AbstractPage abstractPage;
+	private AbstractTest abTest;
 	
 	
-
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		driver = new FirefoxDriver();
+	public void beforeClass(String browserName) {
+		abTest = new AbstractTest();
+		
+		
+		abTest.openMultiBrowser(browserName, driver);
+		
 		abstractPage = new AbstractPage();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-
+	
+		
+	
 	}
 
 	@Test
