@@ -167,6 +167,23 @@ public class AbstractPage {
 		}
 	}
 	
+	//wait
+	public void waitToElementVisible(WebDriver driver, String locator) {	
+		By byLocator = By.xpath(locator);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		
+	}
+	
+	public void waitToElementPresence(WebDriver driver, String locator) {
+		By byLocator = By.xpath(locator);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		waitExplicit.until(ExpectedConditions.presenceOfElementLocated(byLocator));
+		
+	}
+	
+	
+	//Random
 	public int randomNumber() {
 		Random rd = new Random();
 		return rd.nextInt(10000);

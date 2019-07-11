@@ -17,30 +17,27 @@ import commons.AbstractPage;
 import commons.AbstractTest;
 
 
-public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser  {
+public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser extends AbstractTest {
 
-	WebDriver driver;
+    private WebDriver driver;
 
 	private String userIDRegister;
 	private String passwordRegister;
 	private String urlHompage;
 	
 	private AbstractPage abstractPage;
-	private AbstractTest abTest;
+
 	
 	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		abTest = new AbstractTest();
-		
-		
-		abTest.openMultiBrowser(browserName, driver);
+	
+		driver = openMultiBrowser(browserName);
+		System.out.println("Driver Extends: "+ driver.toString());
 		
 		abstractPage = new AbstractPage();
-	
-		
-	
+
 	}
 
 	@Test
@@ -54,7 +51,6 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 
 		//click element
 		abstractPage.clickToElement(driver, "//a[text()='here']");
-		System.out.println("--CLICK SUCCESS--");
 
 		// Send mail
 		abstractPage.sendkeyToElement(driver, "//input[@name='emailid']", mailRegister);
@@ -66,7 +62,7 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 		userIDRegister= abstractPage.getTextInElement(driver, "//td[text()='User ID :']//following-sibling::td");
 		passwordRegister = abstractPage.getTextInElement(driver, "//td[text()='Password :']//following-sibling::td");
 
-		System.out.println(userIDRegister + "-------" + passwordRegister);
+		System.out.println("Email: " + userIDRegister + " PassWord: " + passwordRegister);
 
 	}
 
@@ -86,15 +82,10 @@ public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser 
 
 		Assert.assertTrue(driver.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]"))
 				.isDisplayed());
-		System.out.println(driver
-				.findElement(By.xpath("//marquee[text()=\"Welcome To Manager's Page of Guru99 Bank\"]")).getText());
-		System.out.println("HOM PAGE IS DISPLAY");
-
 		// Verify user
 
 		Assert.assertTrue(
 				driver.findElement(By.xpath("//td[text()='Manger Id : " + userIDRegister + "']")).isDisplayed());
-		System.out.println("USER IS VERIFY");
 
 	}
 

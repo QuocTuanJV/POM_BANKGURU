@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="BANKGURU" parallel="false">
+<suite name="BANKGURU" parallel="tests" thread-count="2">
 	<test name="Run on Firefox">
 	<parameter name="browser" value ="firefox"/>
 		<classes>
@@ -12,16 +12,16 @@
 
 	</test> 
 	
-<!-- 	<test name="Run on Chrome"> -->
-<!-- 	<parameter name="browser" value ="chrome"/> -->
-<!-- 		<classes> -->
-<!-- 			<class -->
-<!-- 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+	<test name="Run on Chrome">
+	<parameter name="browser" value ="chrome"/>
+		<classes>
+			<class
+				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class>
 
-<!-- 		</classes> -->
+		</classes>
 
 
-<!-- 	</test>  -->
+	</test> 
 	
 <!-- 	<test name="Run on Chrome Headless"> -->
 <!-- 	<parameter name="browser" value ="chromeheadless"/> -->

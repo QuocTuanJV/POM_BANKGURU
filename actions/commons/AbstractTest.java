@@ -9,8 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AbstractTest {
 	
-//	public WebDriver driver;
-	public void openMultiBrowser(String nameBrowser, WebDriver driver) {
+	private WebDriver driver;
+	public  WebDriver openMultiBrowser(String nameBrowser) {
 		if(nameBrowser.equals("firefox")) {
 //			set path to geckodriver with firefox >= 48
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
@@ -32,5 +32,8 @@ public class AbstractTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
+		System.out.println("Driver Abstract Test: "+ driver.toString());
+		return driver;
+
 	}
 }
