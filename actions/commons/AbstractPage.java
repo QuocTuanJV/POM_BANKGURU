@@ -138,7 +138,7 @@ public class AbstractPage {
 			element.click();
 		}
 	}
-
+	//check display element
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
 		return driver.findElement(By.xpath(locator)).isDisplayed();
 	}
@@ -166,6 +166,7 @@ public class AbstractPage {
 			return false;
 		}
 	}
+	
 	
 	//wait
 	public void waitToElementVisible(WebDriver driver, String locator) {	
