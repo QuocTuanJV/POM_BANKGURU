@@ -4,7 +4,7 @@
 	<parameter name="browser" value ="firefox"/>
 		<classes>
 			<class
-				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_3_PageObject"></class>
+				name="com.bankguru.account.Account_01_Level_5_WebDriverLifeCycle"></class>
 
 
 		</classes>

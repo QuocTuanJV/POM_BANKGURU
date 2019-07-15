@@ -11,6 +11,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.DepositPageObject;
+import pageObjects.FundTransferPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.NewAccountPageObject;
+import pageObjects.NewCustomerPageObject;
+import pageObjects.PageFactoryManager;
+import pageUIs.AbstractPageUI;
+import pageUIs.DepositPageUI;
+import pageUIs.FundTransferPageUI;
+import pageUIs.NewAccountPageUI;
+import pageUIs.NewCustomerPageUI;
+
 public class AbstractPage {
 
 	// Web Browser
@@ -183,11 +195,65 @@ public class AbstractPage {
 		
 	}
 	
+	//Navigate to NewCustomer 
+	public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
+		waitToElementVisible(driver, NewCustomerPageUI.NEW_CUSTOMER_LINK);
+		clickToElement(driver, NewCustomerPageUI.NEW_CUSTOMER_LINK);
+		return PageFactoryManager.getNewCustomerPage(driver);
+	}
+	//Navigate to Fund Transfer
+	public FundTransferPageObject openFundTransferPage(WebDriver driver) {
+		waitToElementVisible(driver, FundTransferPageUI.FUND_TRANSFER_LINK);
+		clickToElement(driver, FundTransferPageUI.FUND_TRANSFER_LINK);
+		return PageFactoryManager.getFundTransferPage(driver);
+	}
 	
-	//Random
+	//Navigate to Home Page
+	public HomePageObject openHomePage(WebDriver driver) {
+		waitToElementVisible(driver, NewCustomerPageUI.NEW_CUSTOMER_LINK);
+		clickToElement(driver, NewCustomerPageUI.NEW_CUSTOMER_LINK);
+		return PageFactoryManager.getHomePage(driver);
+	}
+	
+	//Navigate to Deposit Page
+	public DepositPageObject openDepositPage(WebDriver driver) {
+		waitToElementVisible(driver, DepositPageUI.DEPOSIT_LINK);
+		clickToElement(driver, DepositPageUI.DEPOSIT_LINK);
+		return PageFactoryManager.getDepositPage(driver);
+	}
+	
+	//Navigate to New Account
+	public NewAccountPageObject openNewAccountPage(WebDriver driver) {
+		waitToElementVisible(driver, NewAccountPageUI.NEW_ACCOUNT_LINK);
+		clickToElement(driver, NewAccountPageUI.NEW_ACCOUNT_LINK);
+		return PageFactoryManager.getNewAccountPage(driver);
+	}
+	
+	//Verify display Deposit
+	public boolean isDepositPageDisPlay(WebDriver driver) {
+		waitToElementVisible(driver, AbstractPageUI.DEPOSIT_DISPLAY);
+		return isControlDisplayed(driver, AbstractPageUI.DEPOSIT_DISPLAY);
+	}	
+	//Verify display Fund Transfer
+	public boolean isFundTransferPageDisPlay(WebDriver driver) {
+		waitToElementVisible(driver, AbstractPageUI.FUND_TRANSFER_DISPLAY_TEXT);
+		return isControlDisplayed(driver, AbstractPageUI.FUND_TRANSFER_DISPLAY_TEXT);
+	}
+	//Verify display New Account
+	public boolean isNewAccountPageDisPlay(WebDriver driver) {
+		waitToElementVisible(driver, AbstractPageUI.NEW_ACCOUNT_DISPLAY_TEXT);
+		return isControlDisplayed(driver, AbstractPageUI.NEW_ACCOUNT_DISPLAY_TEXT);
+	}
+	//Verify display New Customer
+	public boolean isNewCustomerPageDisPlay(WebDriver driver) {
+		waitToElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
+		return isControlDisplayed(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
+	}
+	//viet vao de khong loi - khong dung ham nay o day
 	public int randomNumber() {
 		Random rd = new Random();
 		return rd.nextInt(10000);
 	}
+	
 
 }

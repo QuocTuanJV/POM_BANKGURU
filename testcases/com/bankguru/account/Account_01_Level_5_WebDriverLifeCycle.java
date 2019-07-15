@@ -16,11 +16,16 @@ import org.testng.annotations.Test;
 
 import commons.AbstractPage;
 import commons.AbstractTest;
+import pageObjects.DepositPageObject;
+import pageObjects.FundTransferPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.NewAccountPageObject;
+import pageObjects.NewCustomerPageObject;
+import pageObjects.PageFactoryManager;
 import pageObjects.RegisterPageObject;
 
-public class Account_01_RegisterAndLogin_Level_3_PageObject extends AbstractTest {
+public class Account_01_Level_5_WebDriverLifeCycle extends AbstractTest {
 
 	private WebDriver driver;
 	private String emailRegister;
@@ -31,56 +36,57 @@ public class Account_01_RegisterAndLogin_Level_3_PageObject extends AbstractTest
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 	private HomePageObject homePageObject;
+	private NewCustomerPageObject newCustomerPage;
+	private NewAccountPageObject newAccountPage;
+	private DepositPageObject depositPage;
+	private FundTransferPageObject fundTransferPage;
 
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
 		driver = openMultiBrowser(browserName);
-		
-		registerPage = new RegisterPageObject(driver);
-		homePageObject = new HomePageObject(driver);
-
+		loginPage = PageFactoryManager.getLoginPage(driver);
 	}
 
 	@Test
 	public void TC_01_Register() {
-		loginPage = new LoginPageObject(driver);
 		urlHomepage = loginPage.getCurrentURL();
-		loginPage.clickToHereLink();
-		// Step 01
+		registerPage = loginPage.clickToHereLink();
 		registerPage.inputToEmailIDTextbox(emailRegister);
-		// Step 02
 		registerPage.clickToSubmitButton();
-		// get information
 		userIDRegister = registerPage.getUserIDText();
 		passwordRegister = registerPage.getPassWordText();
-
 	}
 
 	@Test
 	public void TC_02_LoginWithAboveInformation() {
-		//open HomePage
-		registerPage.openLoginPage(urlHomepage);
-		//input information
+		loginPage = registerPage.openLoginPage(urlHomepage);
 		loginPage.inputToUserIDTextbox(userIDRegister);
 		loginPage.inputToPasswordTextbox(passwordRegister);
-		//click login Button
-		loginPage.clickToLoginButton();
-		
-		//verify homepage
+		homePageObject = loginPage.clickToLoginButton();
 		homePageObject.isHomePageDisplay();
+	}
+
+	@Test
+	public void TC_03_WebDriverLifeCycle() {
+		newCustomerPage = homePageObject.openNewCustomerPage(driver);
+		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
 		
+		newAccountPage = newCustomerPage.openNewAccountPage(driver);
+		Assert.assertTrue(newAccountPage.isNewAccountPageDisPlay(driver));
 		
+		depositPage = newAccountPage.openDepositPage(driver);
+		Assert.assertTrue(depositPage.isDepositPageDisPlay(driver));
+		
+		fundTransferPage = depositPage.openFundTransferPage(driver);	
+		Assert.assertTrue(fundTransferPage.isFundTransferPageDisPlay());
+	
 	}
 
 	@AfterClass
 	public void afterClass() {
-	}
-
-	public int randomNumber() {
-		Random rd = new Random();
-		return rd.nextInt(10000);
+		driver.quit();
 	}
 
 }

@@ -29,13 +29,12 @@ public class RegisterPageObject extends AbstractPage {
 		return getTextInElement(driver, RegisterPageUI.PASSWORD_ID_TEXT);
 	}
 	
-	public void openLoginPage(String loginPageURL) {
+	public LoginPageObject openLoginPage(String loginPageURL) {
 		openURL(driver, loginPageURL);
+		return PageFactoryManager.getLoginPage(driver);
 	}
 	
-	public String getURLHomePage() {
-		return getCurrentURL(driver);
-	}
+	
 	
 	
 }
