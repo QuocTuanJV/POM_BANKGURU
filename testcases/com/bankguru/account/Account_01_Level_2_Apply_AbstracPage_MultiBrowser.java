@@ -17,7 +17,7 @@ import commons.AbstractPage;
 import commons.AbstractTest;
 
 
-public class Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser extends AbstractTest {
+public class Account_01_Level_2_Apply_AbstracPage_MultiBrowser extends AbstractTest {
 
     private WebDriver driver;
 

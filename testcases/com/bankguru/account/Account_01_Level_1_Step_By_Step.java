@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_RegisterAndLogin_Level_1 {
+public class Account_01_Level_1_Step_By_Step {
 
 	WebDriver driver;
 

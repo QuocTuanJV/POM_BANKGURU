@@ -18,10 +18,9 @@ import commons.AbstractPage;
 import commons.AbstractTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
-import pageObjects.PageFactoryManager;
 import pageObjects.RegisterPageObject;
 
-public class Account_01_RegisterAndLogin_Level_4_PageObject_Extend extends AbstractTest {
+public class Account_01_Level_3_PageObject extends AbstractTest {
 
 	private WebDriver driver;
 	private String emailRegister;
@@ -38,15 +37,17 @@ public class Account_01_RegisterAndLogin_Level_4_PageObject_Extend extends Abstr
 	public void beforeClass(String browserName) {
 		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
 		driver = openMultiBrowser(browserName);
-		loginPage = PageFactoryManager.getLoginPage(driver);
+		
+		registerPage = new RegisterPageObject(driver);
+		homePageObject = new HomePageObject(driver);
 
 	}
 
 	@Test
 	public void TC_01_Register() {
-
+		loginPage = new LoginPageObject(driver);
 		urlHomepage = loginPage.getCurrentURL();
-		registerPage = loginPage.clickToHereLink();
+		loginPage.clickToHereLink();
 		// Step 01
 		registerPage.inputToEmailIDTextbox(emailRegister);
 		// Step 02
@@ -59,25 +60,27 @@ public class Account_01_RegisterAndLogin_Level_4_PageObject_Extend extends Abstr
 
 	@Test
 	public void TC_02_LoginWithAboveInformation() {
-		// open HomePage
-		loginPage = registerPage.openLoginPage(urlHomepage);
-
-		// input information
+		//open HomePage
+		registerPage.openLoginPage(urlHomepage);
+		//input information
 		loginPage.inputToUserIDTextbox(userIDRegister);
 		loginPage.inputToPasswordTextbox(passwordRegister);
-		// click login Button
-		homePageObject = loginPage.clickToLoginButton();
-
-		// verify homepage
+		//click login Button
+		loginPage.clickToLoginButton();
+		
+		//verify homepage
 		homePageObject.isHomePageDisplay();
-
+		
+		
 	}
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
 	}
 
-	
+	public int randomNumber() {
+		Random rd = new Random();
+		return rd.nextInt(10000);
+	}
 
 }
