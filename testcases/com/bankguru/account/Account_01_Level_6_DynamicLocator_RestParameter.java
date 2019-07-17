@@ -69,7 +69,7 @@ public class Account_01_Level_6_DynamicLocator_RestParameter extends AbstractTes
 	}
 
 	@Test
-	public void TC_03_WebDriverLifeCycle() {
+	public void TC_03_DynamicLocator_RestParameter() {
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
 		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));

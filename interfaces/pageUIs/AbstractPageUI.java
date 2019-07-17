@@ -13,6 +13,9 @@ public class AbstractPageUI {
 	public static final String NEW_ACCOUNT_DISPLAY_TEXT = "//p[text()='Add new account form']";
 	public static final String NEW_CUSTOMER_DISPLAY_TEXT = "//p[text()='Add New Customer']";
 	
+	public static final String NEW_CUSTOMER_UNDISPLAY_TEXT = "//form[@name='addcust']";
+	
+	
 	//DYNAMIC LINK
 	public static final String DYNAMIC_LINK = "//a[text()='%s']";
 	

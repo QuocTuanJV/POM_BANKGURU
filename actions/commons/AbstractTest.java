@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+
+
 
 public class AbstractTest {
 	
@@ -41,5 +44,19 @@ public class AbstractTest {
 	public int randomNumber() {
 		Random rd = new Random();
 		return rd.nextInt(10000);
+	}
+	
+	//Assert => Verify
+	private boolean checkPassed(boolean condition) {
+		boolean pass = true;
+		try {
+			if(condition == true)
+				Assert.assertTrue(condition);
+		} catch (Throwable e) {
+			pass = false;
+			//add issue in report
+			VerificationFailures.getFailures().add
+			
+		}
 	}
 }

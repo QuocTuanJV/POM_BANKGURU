@@ -24,6 +24,8 @@ import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.PageFactoryManager;
 import pageObjects.RegisterPageObject;
+import pageUIs.AbstractPageUI;
+import pageUIs.HomePageUI;
 
 public class Account_01_Level_7_CheckUnDisplayed_OverrideTimeOut extends AbstractTest {
 
@@ -73,19 +75,12 @@ public class Account_01_Level_7_CheckUnDisplayed_OverrideTimeOut extends Abstrac
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
 		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
-		//Customer Page > New Account Page
-		newAccountPage = (NewAccountPageObject) newCustomerPage.openDynamicPage(driver, "New Account");
-		Assert.assertTrue(newAccountPage.isNewAccountPageDisPlay(driver));
-		//New Account Page > Deposit Page
-		depositPage = (DepositPageObject) newAccountPage.openDynamicPage(driver, "Deposit");
-		Assert.assertTrue(depositPage.isDepositPageDisPlay(driver));
-		//Deposit Page > Fund Transfer Page
-		fundTransferPage = (FundTransferPageObject) depositPage.openDynamicPage(driver, "Fund Transfer");
-		Assert.assertTrue(fundTransferPage.isFundTransferPageDisPlay());
-		//100 -> 1000 page
-		depositPage.openDynamicPage(driver, "Manager");
-		homePageObject = PageFactoryManager.getHomePage(driver);
-		Assert.assertTrue(homePageObject.isHomePageDisplay());
+		
+		//check undisplay HomePage size = 0
+		Assert.assertTrue(newCustomerPage.isControlUnDisplayed(driver, HomePageUI.HOME_TEXT));
+		//check undisplay NewCustomer size = 1
+		Assert.assertTrue(newCustomerPage.isControlFormUndisplay());
+		
 		
 	
 	}
