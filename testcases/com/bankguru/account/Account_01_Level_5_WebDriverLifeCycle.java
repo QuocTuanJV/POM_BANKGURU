@@ -71,7 +71,7 @@ public class Account_01_Level_5_WebDriverLifeCycle extends AbstractTest {
 	@Test
 	public void TC_03_WebDriverLifeCycle() {
 		newCustomerPage = homePageObject.openNewCustomerPage(driver);
-		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
+		
 		
 		newAccountPage = newCustomerPage.openNewAccountPage(driver);
 		Assert.assertTrue(newAccountPage.isNewAccountPageDisPlay(driver));

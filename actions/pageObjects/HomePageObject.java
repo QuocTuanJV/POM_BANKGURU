@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import pageUIs.AbstractPageUI;
 import pageUIs.FundTransferPageUI;
 import pageUIs.HomePageUI;
 import pageUIs.NewCustomerPageUI;
@@ -17,6 +18,10 @@ public class HomePageObject extends AbstractPage {
 	public boolean isHomePageDisplay() {
 		waitToElementVisible(driver, HomePageUI.HOME_TEXT);
 		return isControlDisplayed(driver, HomePageUI.HOME_TEXT);
+	}
+	
+	public boolean isHomePageUndisPlay() {
+		return isControlUnDisplayedCustomize(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
 	}
 	
 }

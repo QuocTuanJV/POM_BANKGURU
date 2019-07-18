@@ -74,12 +74,11 @@ public class Account_01_Level_7_CheckUnDisplayed_OverrideTimeOut extends Abstrac
 	public void TC_03_CheckUnDisplayed_OverrideTimeout() {
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
-		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
+	
 		
 		//check undisplay HomePage size = 0
-		Assert.assertTrue(newCustomerPage.isControlUnDisplayed(driver, HomePageUI.HOME_TEXT));
 		//check undisplay NewCustomer size = 1
-		Assert.assertTrue(newCustomerPage.isControlFormUndisplay());
+		Assert.assertTrue(newCustomerPage.isNewCustomerFormUndisplay());
 		
 		
 	

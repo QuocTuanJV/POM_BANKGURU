@@ -67,6 +67,7 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 		loginPage.inputToUserIDTextbox(userIDRegister);
 		loginPage.inputToPasswordTextbox(passwordRegister);
 		homePageObject = loginPage.clickToLoginButton();
+		verifyFalse(homePageObject.isHomePageUndisPlay());
 		
 	}
 
@@ -74,13 +75,22 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 	public void TC_03_CheckUnDisplayed_OverrideTimeout() {
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
-		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
+		
+		verifyFalse(newCustomerPage.isNewCustomerDisplay());
+		//size = 0
+		//Khong hien thi vi khong tim thay xpath
+		Assert.assertTrue(newCustomerPage.isControlNoDOMNoNote());
 		
 		//check undisplay HomePage size = 0
-		Assert.assertTrue(newCustomerPage.isControlUnDisplayed(driver, HomePageUI.HOME_TEXT));
-		//check undisplay NewCustomer size = 1
-		Assert.assertTrue(newCustomerPage.isControlFormUndisplay());
+//	Assert.assertTrue(newCustomerPage.isControlUnDisplayed(driver, HomePageUI.HOME_TEXT));
+		Assert.assertTrue(newCustomerPage.isHomePageNoDOMUnDisplay());
 		
+		//check undisplay NewCustomer size = 1
+//		Assert.assertTrue(newCustomerPage.isNewCustomerFormUndisplay());
+		//Ton tai element nhung khong hien thi
+		verifyTrue(newCustomerPage.isNewCustomerOnDOMUnDisplay());
+		//
+//		verifyTrue(newCustomerPage.isNewCustomerDisplay());
 		
 	
 	}

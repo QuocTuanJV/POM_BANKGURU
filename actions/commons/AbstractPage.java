@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.sun.jna.CallbackThreadInitializer;
+
 import pageObjects.DepositPageObject;
 import pageObjects.FundTransferPageObject;
 import pageObjects.HomePageObject;
@@ -106,7 +108,7 @@ public class AbstractPage {
 		JavascriptExecutor javaExecutor;
 		javaExecutor = (JavascriptExecutor) driver;
 		WebDriverWait waitExplicit;
-		waitExplicit = new WebDriverWait(driver, 60);
+		waitExplicit = new WebDriverWait(driver, shortTimeout);
 
 		WebElement element = driver.findElement(By.xpath(parentXpath));
 		javaExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -193,14 +195,14 @@ public class AbstractPage {
 	public void waitToElementVisible(WebDriver driver, String locator, String... dynamicValue) {
 
 		By byLocator = By.xpath(String.format(locator, (Object[]) dynamicValue));
-		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, shortTimeout);
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
 
 	}
 	//wait visible locator 
 	public void waitToElementVisible(WebDriver driver, String locator) {
 		By byLocator = By.xpath(locator);
-		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, shortTimeout);
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
 	}
 	
@@ -208,7 +210,7 @@ public class AbstractPage {
 	public void waitToElementInvisible(WebDriver driver, String locator, String... dynamicValue) {
 
 		By byLocator = By.xpath(String.format(locator, (Object[]) dynamicValue));
-		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, shortTimeout);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
 
 	}
@@ -216,14 +218,14 @@ public class AbstractPage {
 	//wait invisible locator
 	public void waitToElementInvisible(WebDriver driver, String locator) {
 		By byLocator = By.xpath(locator);
-		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, shortTimeout);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
 	}
 	
 	//wait presence
 	public void waitToElementPresence(WebDriver driver, String locator) {
 		By byLocator = By.xpath(locator);
-		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
+		WebDriverWait waitExplicit = new WebDriverWait(driver, shortTimeout);
 		waitExplicit.until(ExpectedConditions.presenceOfElementLocated(byLocator));
 
 	}
@@ -309,40 +311,79 @@ public class AbstractPage {
 	}
 
 	// Verify display New Customer
-	public boolean isNewCustomerPageDisPlay(WebDriver driver) {
-		waitToElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
-		return isControlDisplayed(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
-	}
-	
-	//check Undisplayed element on locator
-	public boolean isControlUnDisplayed(WebDriver driver, String locator) {
+	public boolean isControlDisPlayCustomize(WebDriver driver, String locator) {
 		java.util.Date date = new java.util.Date();
-		System.out.println("Start time = " + date.toString());
+//		System.out.println("Start time = " + date.toString());
 		overrideGlobalTimeout(driver, shortTimeout);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		
 		System.out.println("SIZE = " + elements.size());
 		if(elements.size() == 0) {
 			java.util.Date date1 = new java.util.Date();
-			System.out.println("End Time: " + date1.toString());
+//			System.out.println("End Time: " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			return true;			
+			System.out.println("FALSE");
+			System.out.println("------------");
+			return false;			
 		} else if(elements.size() > 0 && elements.get(0).isDisplayed()) {
 			java.util.Date date1 = new java.util.Date();
-			System.out.println("End Time = " + date1.toString());
+//			System.out.println("End Time = " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			return false;
+			System.out.println("TRUE");
+			System.out.println("------------");
+			return true;
 		}
 		else
 		{
 			java.util.Date date1 = new java.util.Date();
-			System.out.println("End Time = " + date1.toString());
+//			System.out.println("End Time = " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			return true;
+			System.out.println("TRUE");
+			System.out.println("------------");
+			return false;
 		}
+	}
+	
+	//check Undisplayed element on locator
+	public boolean isControlUnDisplayedCustomize(WebDriver driver, String locator) {
+		java.util.Date date = new java.util.Date();
+		System.out.println("Start time = " + date.toString());
+		overrideGlobalTimeout(driver, shortTimeout);
+		try {
+			List<WebElement> elements = driver.findElements(By.xpath(locator));
+			System.out.println("SIZE = " + elements.size());
+			if(elements.size() == 0) {
+				java.util.Date date1 = new java.util.Date();
+//				System.out.println("End Time: " + date1.toString());
+				overrideGlobalTimeout(driver, longTimeout);
+				System.out.println("TRUE");
+				System.out.println("------------");
+				return true;			
+			} else if(elements.size() > 0 && elements.get(0).isDisplayed()) {
+				java.util.Date date1 = new java.util.Date();
+//				System.out.println("End Time = " + date1.toString());
+				overrideGlobalTimeout(driver, longTimeout);
+				System.out.println("FALSE");
+				System.out.println("------------");
+				return false;
+			}
+			else
+			{
+				java.util.Date date1 = new java.util.Date();
+//				System.out.println("End Time = " + date1.toString());
+				overrideGlobalTimeout(driver, longTimeout);
+				System.out.println("TRUE");
+				System.out.println("------------");
+				return true;
+			}
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
 		
 	}
-	public boolean isControlUnDisplayed(WebDriver driver, String locator, String... dynamicValue) {
+	public boolean isControlUnDisplayedCustomize(WebDriver driver, String locator, String... dynamicValue) {
 		Date date = new Date(0);
 		System.out.println("Start time = " + date.toString());
 		overrideGlobalTimeout(driver, shortTimeout);

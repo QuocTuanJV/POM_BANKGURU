@@ -3,60 +3,114 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-
-
+import org.testng.Reporter;
 
 public class AbstractTest {
-	
+
 	private WebDriver driver;
-	public  WebDriver openMultiBrowser(String nameBrowser) {
-		if(nameBrowser.equals("firefox")) {
+	protected final Log log;
+	
+	protected AbstractTest() {
+		log = LogFactory.getLog(getClass());
+	}
+
+	public WebDriver openMultiBrowser(String nameBrowser) {
+		if (nameBrowser.equals("firefox")) {
 //			set path to geckodriver with firefox >= 48
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
 			driver = new FirefoxDriver();
-		} else if(nameBrowser.equals("chrome")) {
+		} else if (nameBrowser.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 //			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
 //			System.setProperty("webdriver.opera.driver", ".\\lib\\operadriver.exe");
 //			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");	
 			driver = new ChromeDriver();
-		} else if(nameBrowser.equals("chromeheadless")) {
+		} else if (nameBrowser.equals("chromeheadless")) {
 			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
 			options.addArguments("window-size=1366x768");
 			driver = new ChromeDriver(options);
 		}
-		driver.get(Constants.DEV_URL);		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get(Constants.DEV_URL);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
-		System.out.println("Driver Abstract Test: "+ driver.toString());
+
+		System.out.println("Driver Abstract Test: " + driver.toString());
 		return driver;
 
 	}
-	
+
 	public int randomNumber() {
 		Random rd = new Random();
 		return rd.nextInt(10000);
 	}
-	
-	//Assert => Verify
+
+	// AssertTrue => VerifyTrue (Modify Function Assert)
 	private boolean checkPassed(boolean condition) {
 		boolean pass = true;
 		try {
-			if(condition == true)
+			if (condition == true)
 				Assert.assertTrue(condition);
 		} catch (Throwable e) {
 			pass = false;
-			//add issue in report
-			VerificationFailures.getFailures().add
-			
+			// add issue in report
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
 		}
+		return pass;
 	}
+
+	// AssertTrue => VerifyTrue Modify Function Assert and hide Function checkPassed
+	protected boolean verifyTrue(boolean condition) {
+		return checkPassed(condition);
+	}
+
+	private boolean checkFailed(boolean condition) {
+		boolean pass = true;
+		try {
+			if (condition == true)
+				log.info("===PASS===");
+				else {
+				log.info("===FAILED===");	
+				}
+				Assert.assertFalse(condition);
+		} catch (Throwable e) {
+			pass = false;
+			// add issue in report
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+	
+
+	protected boolean verifyFalse(boolean condition) {
+		 return checkFailed(condition);
+	}
+
+	private boolean checkEquals(Object actual, Object expected) {
+		boolean pass = true;
+		try {
+			Assert.assertEquals(actual, expected);
+		} catch (Throwable e) {
+			pass = false;
+			// add issue in report
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+	
+	protected boolean verifyEquals(Object actual, Object expected) {
+		return checkEquals(actual, expected);
+	}
+
 }

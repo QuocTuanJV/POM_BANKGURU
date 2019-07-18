@@ -72,7 +72,7 @@ public class Account_01_Level_6_DynamicLocator_RestParameter extends AbstractTes
 	public void TC_03_DynamicLocator_RestParameter() {
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
-		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisPlay(driver));
+	
 		//Customer Page > New Account Page
 		newAccountPage = (NewAccountPageObject) newCustomerPage.openDynamicPage(driver, "New Account");
 		Assert.assertTrue(newAccountPage.isNewAccountPageDisPlay(driver));

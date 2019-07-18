@@ -11,7 +11,9 @@ public class AbstractPageUI {
 	public static final String DEPOSIT_DISPLAY = "//p[text()='Amount Deposit Form']";
 	public static final String FUND_TRANSFER_DISPLAY_TEXT = "//p[text()='Fund transfer']";
 	public static final String NEW_ACCOUNT_DISPLAY_TEXT = "//p[text()='Add new account form']";
-	public static final String NEW_CUSTOMER_DISPLAY_TEXT = "//p[text()='Add New Customer']";
+	
+	public static final String NEW_CUSTOMER_WRONG_TEXT = "//p[text()='Add New Customer123']";////p[text()='Add New Customer123']
+	public static final String NEW_CUSTOMER_DISPLAY_TEXT = "//p[text()='Add New Customer']";////p[text()='Add New Customer123']
 	
 	public static final String NEW_CUSTOMER_UNDISPLAY_TEXT = "//form[@name='addcust']";
 	
