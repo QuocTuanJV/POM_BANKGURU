@@ -1,0 +1,11 @@
+2019-07-19 16:37:00,868 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 01: Get Login Page URL
+ 2019-07-19 16:37:00,886 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 02: Click to here link
+ 2019-07-19 16:37:02,787 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 03: Input data to Email
+ 2019-07-19 16:37:02,919 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 04: Click to Submit button
+ 2019-07-19 16:37:03,923 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 05: Get UserID and Password
+ 2019-07-19 16:37:03,993 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 01: Open URL
+ 2019-07-19 16:37:05,589 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 02: Input ID and Pass
+ 2019-07-19 16:37:05,768 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 03: Click to Login button
+ 2019-07-19 16:37:06,241 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 04: Verify element display
+ 2019-07-19 16:37:27,522 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - ===FAILED===
+ 

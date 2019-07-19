@@ -20,8 +20,13 @@ public class HomePageObject extends AbstractPage {
 		return isControlDisplayed(driver, HomePageUI.HOME_TEXT);
 	}
 	
+	public boolean isHomePageNotDisplayWrongLocator() {
+		waitToElementInvisible(driver, HomePageUI.HOME_WRONG_TEXT);
+		return isControlDisplayed(driver, HomePageUI.HOME_WRONG_TEXT);
+	}
+	
 	public boolean isHomePageUndisPlay() {
-		return isControlUnDisplayedCustomize(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
+		return isControlUnDisplayedCustomize(driver, HomePageUI.HOME_WRONG_TEXT);
 	}
 	
 }

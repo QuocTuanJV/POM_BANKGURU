@@ -16,7 +16,7 @@ public class AbstractTest {
 
 	private WebDriver driver;
 	protected final Log log;
-	
+
 	protected AbstractTest() {
 		log = LogFactory.getLog(getClass());
 	}
@@ -58,12 +58,19 @@ public class AbstractTest {
 		boolean pass = true;
 		try {
 			if (condition == true)
-				Assert.assertTrue(condition);
+				log.info("===PASS===");
+			else {
+				log.info("===FAILED===");
+			}
+
+			Assert.assertTrue(condition);
+
 		} catch (Throwable e) {
 			pass = false;
 			// add issue in report
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
+			
 		}
 		return pass;
 	}
@@ -76,29 +83,34 @@ public class AbstractTest {
 	private boolean checkFailed(boolean condition) {
 		boolean pass = true;
 		try {
-			if (condition == true)
-				log.info("===PASS===");
-				else {
-				log.info("===FAILED===");	
-				}
-				Assert.assertFalse(condition);
+			if (condition == false)
+				log.info("===PASS=====");
+			else {
+				log.info("===FAILED===");
+			}
+			Assert.assertFalse(condition);
 		} catch (Throwable e) {
 			pass = false;
 			// add issue in report
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
+			
 		}
 		return pass;
 	}
-	
 
 	protected boolean verifyFalse(boolean condition) {
-		 return checkFailed(condition);
+		return checkFailed(condition);
 	}
 
 	private boolean checkEquals(Object actual, Object expected) {
 		boolean pass = true;
 		try {
+			if (actual == expected)
+				log.info("===PASS===");
+			else {
+				log.info("===FAILED===");
+			}
 			Assert.assertEquals(actual, expected);
 		} catch (Throwable e) {
 			pass = false;
@@ -108,7 +120,7 @@ public class AbstractTest {
 		}
 		return pass;
 	}
-	
+
 	protected boolean verifyEquals(Object actual, Object expected) {
 		return checkEquals(actual, expected);
 	}

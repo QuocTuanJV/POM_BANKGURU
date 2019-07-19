@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANKGURU" parallel="tests" thread-count="2">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+
+	</listeners>
+
 	<test name="Run on Firefox">
-	<parameter name="browser" value ="firefox"/>
+		<parameter name="browser" value="firefox" />
 		<classes>
 			<class
 				name="com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report"></class>
@@ -10,28 +17,28 @@
 		</classes>
 
 
-	</test> 
-	
-<!-- 	<test name="Run on Chrome"> -->
-<!-- 	<parameter name="browser" value ="chrome"/> -->
-<!-- 		<classes> -->
-<!-- 			<class -->
-<!-- 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+	</test>
 
-<!-- 		</classes> -->
+	<!-- <test name="Run on Chrome"> -->
+	<!-- <parameter name="browser" value ="chrome"/> -->
+	<!-- <classes> -->
+	<!-- <class -->
+	<!-- name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+
+	<!-- </classes> -->
 
 
-<!-- 	</test>  -->
-	
-<!-- 	<test name="Run on Chrome Headless"> -->
-<!-- 	<parameter name="browser" value ="chromeheadless"/> -->
-<!-- 		<classes> -->
-<!-- 			<class -->
-<!-- 				name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
+	<!-- </test> -->
 
-<!-- 		</classes> -->
+	<!-- <test name="Run on Chrome Headless"> -->
+	<!-- <parameter name="browser" value ="chromeheadless"/> -->
+	<!-- <classes> -->
+	<!-- <class -->
+	<!-- name="com.bankguru.account.Account_01_RegisterAndLogin_Level_2_Apply_AbstracPage_MultiBrowser"></class> -->
 
-<!-- 	</test>  -->
-	
-	
+	<!-- </classes> -->
+
+	<!-- </test> -->
+
+
 </suite> 

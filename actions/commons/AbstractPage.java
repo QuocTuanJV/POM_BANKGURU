@@ -162,8 +162,17 @@ public class AbstractPage {
 
 	// check display element
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
-		WebElement element = driver.findElement(By.xpath(locator));
-		return element.isDisplayed();
+		try{
+
+			WebElement element = driver.findElement(By.xpath(locator));
+			boolean status =  element.isDisplayed();
+			System.out.println("STATUS = " + status);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+		
+		
 	}
 
 	public boolean isControlSelected(WebDriver driver, String locator) {
@@ -348,6 +357,7 @@ public class AbstractPage {
 	public boolean isControlUnDisplayedCustomize(WebDriver driver, String locator) {
 		java.util.Date date = new java.util.Date();
 		System.out.println("Start time = " + date.toString());
+		
 		overrideGlobalTimeout(driver, shortTimeout);
 		try {
 			List<WebElement> elements = driver.findElements(By.xpath(locator));
@@ -356,14 +366,12 @@ public class AbstractPage {
 				java.util.Date date1 = new java.util.Date();
 //				System.out.println("End Time: " + date1.toString());
 				overrideGlobalTimeout(driver, longTimeout);
-				System.out.println("TRUE");
 				System.out.println("------------");
 				return true;			
 			} else if(elements.size() > 0 && elements.get(0).isDisplayed()) {
 				java.util.Date date1 = new java.util.Date();
 //				System.out.println("End Time = " + date1.toString());
 				overrideGlobalTimeout(driver, longTimeout);
-				System.out.println("FALSE");
 				System.out.println("------------");
 				return false;
 			}
@@ -372,7 +380,6 @@ public class AbstractPage {
 				java.util.Date date1 = new java.util.Date();
 //				System.out.println("End Time = " + date1.toString());
 				overrideGlobalTimeout(driver, longTimeout);
-				System.out.println("TRUE");
 				System.out.println("------------");
 				return true;
 			}

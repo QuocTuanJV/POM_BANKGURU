@@ -53,21 +53,39 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 
 	@Test
 	public void TC_01_Register() {
+		log.info("Account_01 - Step 01: Get Login Page URL");
 		urlHomepage = loginPage.getCurrentURL();
+				
+		log.info("Account_01 - Step 02: Click to here link");
 		registerPage = loginPage.clickToHereLink();
+		
+		log.info("Account_01 - Step 03: Input data to Email");
 		registerPage.inputToEmailIDTextbox(emailRegister);
+		
+		log.info("Account_01 - Step 04: Click to Submit button");
 		registerPage.clickToSubmitButton();
+		
+		log.info("Account_01 - Step 05: Get UserID and Password");
 		userIDRegister = registerPage.getUserIDText();
 		passwordRegister = registerPage.getPassWordText();
 	}
 
 	@Test
 	public void TC_02_LoginWithAboveInformation() {
+		log.info("Account_02 - Step 01: Open URL");
 		loginPage = registerPage.openLoginPage(urlHomepage);
+			
+		log.info("Account_02 - Step 02: Input ID and Pass");
 		loginPage.inputToUserIDTextbox(userIDRegister);
 		loginPage.inputToPasswordTextbox(passwordRegister);
+		
+		log.info("Account_02 - Step 03: Click to Login button");
 		homePageObject = loginPage.clickToLoginButton();
-		verifyFalse(homePageObject.isHomePageUndisPlay());
+//		Assert.assertTrue(homePageObject.isHomePageNotDisplayWrongLocator());
+		
+		log.info("Account_02 - Step 04: Verify element display");
+		verifyTrue(homePageObject.isHomePageNotDisplayWrongLocator());
+		
 		
 	}
 
@@ -76,21 +94,8 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 		//Home Page > New Customer
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
 		
-		verifyFalse(newCustomerPage.isNewCustomerDisplay());
-		//size = 0
-		//Khong hien thi vi khong tim thay xpath
-		Assert.assertTrue(newCustomerPage.isControlNoDOMNoNote());
-		
-		//check undisplay HomePage size = 0
-//	Assert.assertTrue(newCustomerPage.isControlUnDisplayed(driver, HomePageUI.HOME_TEXT));
-		Assert.assertTrue(newCustomerPage.isHomePageNoDOMUnDisplay());
-		
-		//check undisplay NewCustomer size = 1
-//		Assert.assertTrue(newCustomerPage.isNewCustomerFormUndisplay());
-		//Ton tai element nhung khong hien thi
-		verifyTrue(newCustomerPage.isNewCustomerOnDOMUnDisplay());
-		//
-//		verifyTrue(newCustomerPage.isNewCustomerDisplay());
+		//locator dung nhung khong tim thay trong 
+//		Assert.assertTrue(newCustomerPage.isControlNoDOMNoNote());
 		
 	
 	}
