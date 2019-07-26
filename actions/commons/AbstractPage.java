@@ -167,7 +167,7 @@ public class AbstractPage {
 			WebElement element = driver.findElement(By.xpath(locator));
 			boolean status =  element.isDisplayed();
 			System.out.println("STATUS = " + status);
-			return true;
+			return status;
 		}catch(Exception e) {
 			return false;
 		}
