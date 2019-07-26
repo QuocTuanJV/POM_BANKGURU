@@ -27,12 +27,12 @@ import pageObjects.RegisterPageObject;
 import pageUIs.AbstractPageUI;
 import pageUIs.HomePageUI;
 
-public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
+public class Account_01_Register_Login_Global extends AbstractTest {
 
 	private WebDriver driver;
-//	private String emailRegister;
-//	private String userIDRegister;
-//	private String passwordRegister;
+	private String emailRegister;
+	public static String userIDRegister;
+	public static String passwordRegister;
 	private String urlHomepage;
 
 	private LoginPageObject loginPage;
@@ -46,33 +46,31 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-//		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
+		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
 		driver = openMultiBrowser(browserName);
 		loginPage = PageFactoryManager.getLoginPage(driver);
-		
-		loginPage.inputToUserIDTextbox(Account_01_Register_Login_Global.userIDRegister);
-		loginPage.inputToPasswordTextbox(Account_01_Register_Login_Global.passwordRegister);
-		homePageObject = loginPage.clickToLoginButton();
 	}
 
-//	@Test
-//	public void TC_01_Register() {
-//		log.info("Account_01 - Step 01: Get Login Page URL");
-//		urlHomepage = loginPage.getCurrentURL();
-//				
-//		log.info("Account_01 - Step 02: Click to here link");
-//		registerPage = loginPage.clickToHereLink();
-//		
-//		log.info("Account_01 - Step 03: Input data to Email");
-//		registerPage.inputToEmailIDTextbox(emailRegister);
-//		
-//		log.info("Account_01 - Step 04: Click to Submit button");
-//		registerPage.clickToSubmitButton();
-//		
-//		log.info("Account_01 - Step 05: Get UserID and Password");
-//		userIDRegister = registerPage.getUserIDText();
-//		passwordRegister = registerPage.getPassWordText();
-//	}
+	@Test
+	public void TC_01_Register() {
+		log.info("Account_01 - Step 01: Get Login Page URL");
+		urlHomepage = loginPage.getCurrentURL();
+				
+		log.info("Account_01 - Step 02: Click to here link");
+		registerPage = loginPage.clickToHereLink();
+		
+		log.info("Account_01 - Step 03: Input data to Email");
+		registerPage.inputToEmailIDTextbox(emailRegister);
+		
+		log.info("Account_01 - Step 04: Click to Submit button");
+		registerPage.clickToSubmitButton();
+		
+		log.info("Account_01 - Step 05: Get UserID and Password");
+		userIDRegister = registerPage.getUserIDText();
+		passwordRegister = registerPage.getPassWordText();
+		log.info("User: " + userIDRegister);
+		log.info("Pass: " + passwordRegister);
+	}
 
 //	@Test
 //	public void TC_02_LoginWithAboveInformation() {
@@ -86,31 +84,22 @@ public class Account_01_Level_8_Assert_Verify_Log_Report extends AbstractTest {
 //		log.info("Account_02 - Step 03: Click to Login button");
 //		homePageObject = loginPage.clickToLoginButton();
 ////		Assert.assertTrue(homePageObject.isHomePageNotDisplayWrongLocator());
-//		
-//		log.info("Account_02 - Step 04: Verify element display");
-//		verifyTrue(homePageObject.isHomePageNotDisplayWrongLocator());
-//		
+		
+		
+		
 //		
 //	}
 
-	@Test
-	public void TC_03_CheckUnDisplayed_OverrideTimeout() {
-		
-		log.info("Account_03_ Verify Wrong locator");
-		verifyTrue(homePageObject.isHomePageNotDisplayWrongLocator());
-		
-		log.info("Account_03 - Step 04: Verify element display");
-		verifyTrue(homePageObject.isHomePageNotDisplayWrongLocator());
-		//Home Page > New Customer
-		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
-		
-		log.info("User: " + Account_01_Register_Login_Global.userIDRegister);
-		log.info("Pass: " + Account_01_Register_Login_Global.passwordRegister);
-		//locator dung nhung khong tim thay trong 
-//		Assert.assertTrue(newCustomerPage.isControlNoDOMNoNote());
-		
-	
-	}
+//	@Test
+//	public void TC_03_CheckUnDisplayed_OverrideTimeout() {
+//		//Home Page > New Customer
+//		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
+//		
+//		//locator dung nhung khong tim thay trong 
+////		Assert.assertTrue(newCustomerPage.isControlNoDOMNoNote());
+//		
+//	
+//	}
 
 	@AfterClass
 	public void afterClass() {

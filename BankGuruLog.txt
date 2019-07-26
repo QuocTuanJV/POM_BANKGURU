@@ -1,11 +1,19 @@
-2019-07-21 14:43:29,731 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 01: Get Login Page URL
- 2019-07-21 14:43:29,744 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 02: Click to here link
- 2019-07-21 14:43:30,338 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 03: Input data to Email
- 2019-07-21 14:43:45,310 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 04: Click to Submit button
- 2019-07-21 14:43:48,265 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_01 - Step 05: Get UserID and Password
- 2019-07-21 14:43:48,430 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 01: Open URL
- 2019-07-21 14:43:50,563 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 02: Input ID and Pass
- 2019-07-21 14:43:50,926 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 03: Click to Login button
- 2019-07-21 14:43:51,497 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_02 - Step 04: Verify element display
- 2019-07-21 14:44:42,877 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - ===FAILED===
+2019-07-26 16:01:21,523 INFO  com.bankguru.account.Account_01_Register_Login_Global - Account_01 - Step 01: Get Login Page URL
+ 2019-07-26 16:01:21,533 INFO  com.bankguru.account.Account_01_Register_Login_Global - Account_01 - Step 02: Click to here link
+ 2019-07-26 16:01:24,067 INFO  com.bankguru.account.Account_01_Register_Login_Global - Account_01 - Step 03: Input data to Email
+ 2019-07-26 16:01:24,238 INFO  com.bankguru.account.Account_01_Register_Login_Global - Account_01 - Step 04: Click to Submit button
+ 2019-07-26 16:01:25,325 INFO  com.bankguru.account.Account_01_Register_Login_Global - Account_01 - Step 05: Get UserID and Password
+ 2019-07-26 16:01:25,464 INFO  com.bankguru.account.Account_01_Register_Login_Global - User: mngr212224
+ 2019-07-26 16:01:25,464 INFO  com.bankguru.account.Account_01_Register_Login_Global - Pass: rYnYmag
+ 2019-07-26 16:01:26,408 INFO  com.bankguru.account.Account_01_Register_Login_Global - -----QUIT BROWSER SUCCESS-----
+ 2019-07-26 16:01:34,080 INFO  com.bankguru.account.Account_01_Level_6_DynamicLocator_RestParameter - User: mngr212224
+ 2019-07-26 16:01:34,080 INFO  com.bankguru.account.Account_01_Level_6_DynamicLocator_RestParameter - Pass: rYnYmag
+ 2019-07-26 16:01:34,944 INFO  com.bankguru.account.Account_01_Level_6_DynamicLocator_RestParameter - -----QUIT BROWSER SUCCESS-----
+ 2019-07-26 16:01:42,690 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_03_ Verify Wrong locator
+ 2019-07-26 16:02:02,740 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - ===FAILED===
+ 2019-07-26 16:02:02,742 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Account_03 - Step 04: Verify element display
+ 2019-07-26 16:02:22,769 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - ===FAILED===
+ 2019-07-26 16:02:23,711 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - User: mngr212224
+ 2019-07-26 16:02:23,711 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - Pass: rYnYmag
+ 2019-07-26 16:02:24,582 INFO  com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report - -----QUIT BROWSER SUCCESS-----
  
