@@ -24,6 +24,7 @@ import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.PageFactoryManager;
 import pageObjects.RegisterPageObject;
+import pageUIs.AbstractPageUI;
 
 public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends AbstractTest {
 
@@ -41,7 +42,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 	private DepositPageObject depositPage;
 	private FundTransferPageObject fundTransferPage;
 	
-	private String customerName, gender, dateOfBirth, address, city, state, pin, phone, passwordNewCustomer;
+	private String customerName, gender, dateOfBirth, address, city, state, pin, phone, emailNewCustomer, passwordNewCustomer;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -57,6 +58,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		state="Thu Duc"; 
 		pin="362562"; 
 		phone="01234567899";
+		emailNewCustomer ="tuan54321@gmail.com";
 		passwordNewCustomer ="12345678";
 		
 	}
@@ -83,10 +85,34 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 	@Test(description = "Create New Customer")
 	public void TC_03_DynamicPageObjectPageElementPageUI() {
 		//Home Page > New Customer
+		log.info("TC 03 Open New Customer Page");
 		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
 		
 		//Verify Page New Customer is Display
+		log.info("TC 03 Verify Customer Page Display");
 		verifyTrue(newCustomerPage.isNewCustomerDisplay());
+		
+		//Input field
+		log.info("TC 03 In put field");
+//		newCustomerPage.scrollToElementByJavascript(driver, javaExecutor, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, customerName , "name");
+		newCustomerPage.inputRadioButtonDynamic(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON_LINK, "f");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, dateOfBirth , "dob");
+		newCustomerPage.inputTextAreaDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_AREA_LINK, address , "addr");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, city , "city");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, state , "state");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, pin , "pinno");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, phone , "telephoneno");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, emailNewCustomer , "emailid");
+		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, passwordNewCustomer , "password");
+		
+		log.info("TC 03 Click button submit");
+		newCustomerPage.clickButtonDynamic(driver, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
+		
+		
+		
+		
+		
 		
 		
 		
@@ -96,7 +122,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+//		driver.quit();
 	}
 
 }

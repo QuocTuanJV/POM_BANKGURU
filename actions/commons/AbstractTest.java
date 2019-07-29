@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class AbstractTest {
 
 	private WebDriver driver;
+	protected JavascriptExecutor javaExecutor;
 	protected final Log log;
 
 	protected AbstractTest() {
@@ -30,6 +32,8 @@ public class AbstractTest {
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			javaExecutor = (JavascriptExecutor) driver;
+			
 		} else if (nameBrowser.equals("chrome")) {
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 //			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
@@ -37,6 +41,7 @@ public class AbstractTest {
 //			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");
 			WebDriverManager.firefoxdriver().setup();
 			driver = new ChromeDriver();
+			javaExecutor = (JavascriptExecutor) driver;
 		} else if (nameBrowser.equals("chromeheadless")) {
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 			WebDriverManager.firefoxdriver().setup();
@@ -44,9 +49,12 @@ public class AbstractTest {
 			options.addArguments("headless");
 			options.addArguments("window-size=1366x768");
 			driver = new ChromeDriver(options);
+			javaExecutor = (JavascriptExecutor) driver;
+			
 		} else if (nameBrowser.equals("internetexplorer")) {
 			WebDriverManager.iedriver().arch64().setup();
 			driver = new InternetExplorerDriver();
+			javaExecutor = (JavascriptExecutor) driver;
 		}
 		driver.get(Constants.DEV_URL);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

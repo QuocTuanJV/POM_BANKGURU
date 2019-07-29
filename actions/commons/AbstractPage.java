@@ -426,7 +426,13 @@ public class AbstractPage {
 	
 	//Dynmic input Text file
 	
-	public void inputTextFieldDynamic(WebDriver driver, String locator,String sendValue, String...dynamicValue) {
+	public void inputTextFieldDynamic(WebDriver driver,String locator,String sendValue, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		sendkeyToElement(driver, locator, sendValue);
+	}
+	
+	public void inputTextAreaDynamic(WebDriver driver, String locator,String sendValue, String...dynamicValue) {
 		locator = String.format(locator, (Object[]) dynamicValue);
 		waitToElementVisible(driver, locator, dynamicValue);
 		sendkeyToElement(driver, locator, sendValue);
@@ -436,6 +442,19 @@ public class AbstractPage {
 		locator = String.format(locator, (Object[]) dynamicValue);
 		waitToElementVisible(driver, locator, dynamicValue);
 		clickToElement(driver, locator);
+	}
+	public void clickButtonDynamic(WebDriver driver, String locator, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		clickToElement(driver, locator);
+	}
+	
+	public void scrollToElementByJavascript(WebDriver driver,JavascriptExecutor javaExecutor, String locator, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		WebElement element = driver.findElement(By.xpath(locator));
+		javaExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+		
 	}
 	
 	int shortTimeout = 5;
