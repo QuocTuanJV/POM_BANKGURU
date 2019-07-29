@@ -32,6 +32,7 @@ public class NewCustomerPageObject extends AbstractPage {
 		waitToElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
 		return isControlDisPlayCustomize(driver, AbstractPageUI.NEW_CUSTOMER_DISPLAY_TEXT);
 	}
+	
 		
 	public boolean isNewCustomerOnDOMUnDisplay() {
 		waitToElementInvisible(driver, AbstractPageUI.NEW_CUSTOMER_UNDISPLAY_TEXT);

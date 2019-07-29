@@ -40,6 +40,8 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 	private NewAccountPageObject newAccountPage;
 	private DepositPageObject depositPage;
 	private FundTransferPageObject fundTransferPage;
+	
+	private String customerName, gender, dateOfBirth, address, city, state, pin, phone, passwordNewCustomer;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -47,9 +49,19 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
 		driver = openMultiBrowser(browserName);
 		loginPage = PageFactoryManager.getLoginPage(driver);
+		customerName="Selenium Online"; 
+		gender="f"; 
+		dateOfBirth="01/01/2019"; 
+		address="258 Le duan"; 
+		city="Sai Gon"; 
+		state="Thu Duc"; 
+		pin="362562"; 
+		phone="01234567899";
+		passwordNewCustomer ="12345678";
+		
 	}
 
-	@Test
+	@Test(description ="Register to system")
 	public void TC_01_Register() {
 		urlHomepage = loginPage.getCurrentURL();
 		registerPage = loginPage.clickToHereLink();
@@ -59,7 +71,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		passwordRegister = registerPage.getPassWordText();
 	}
 
-	@Test
+	@Test(description="Login to system")
 	public void TC_02_LoginWithAboveInformation() {
 		loginPage = registerPage.openLoginPage(urlHomepage);
 		loginPage.inputToUserIDTextbox(userIDRegister);
@@ -68,19 +80,17 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		homePageObject.isHomePageDisplay();
 	}
 
-	@Test
+	@Test(description = "Create New Customer")
 	public void TC_03_DynamicPageObjectPageElementPageUI() {
-		newCustomerPage = homePageObject.openNewCustomerPage(driver);
+		//Home Page > New Customer
+		newCustomerPage = (NewCustomerPageObject) homePageObject.openDynamicPage(driver, "New Customer");
+		
+		//Verify Page New Customer is Display
+		verifyTrue(newCustomerPage.isNewCustomerDisplay());
 		
 		
-		newAccountPage = newCustomerPage.openNewAccountPage(driver);
-		Assert.assertTrue(newAccountPage.isNewAccountPageDisPlay(driver));
 		
-		depositPage = newAccountPage.openDepositPage(driver);
-		Assert.assertTrue(depositPage.isDepositPageDisPlay(driver));
-		
-		fundTransferPage = depositPage.openFundTransferPage(driver);	
-		Assert.assertTrue(fundTransferPage.isFundTransferPageDisPlay());
+
 	
 	}
 

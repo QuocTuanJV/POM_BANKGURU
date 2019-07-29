@@ -89,6 +89,7 @@ public class AbstractPage {
 
 	// Element: text box, text area => locator
 	public void sendkeyToElement(WebDriver driver, String locator, String key) {
+		
 		driver.findElement(By.xpath(locator)).clear();
 		driver.findElement(By.xpath(locator)).sendKeys(key);
 	}
@@ -423,6 +424,19 @@ public class AbstractPage {
 	
 	//New Customer Undisplay
 	
+	//Dynmic input Text file
+	
+	public void inputTextFieldDynamic(WebDriver driver, String locator,String sendValue, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		sendkeyToElement(driver, locator, sendValue);
+	}
+	
+	public void inputRadioButtonDynamic(WebDriver driver, String locator, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		clickToElement(driver, locator);
+	}
 	
 	int shortTimeout = 5;
 	int longTimeout = 30;
