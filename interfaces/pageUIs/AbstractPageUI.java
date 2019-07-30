@@ -24,6 +24,7 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_BUTTON_LINK = "//input[@name='%s']";//with button
 	public static final String DYNAMIC_TEXT_AREA_LINK = "//textarea[@name='%s']";
 	public static final String DYNAMIC_RADIO_BUTTON_LINK = "//input[@value ='%s']";
+	public static final String DYNAMIC_VERIFY_PAGE_TEXT= "//p[text()='%s']";
 	
 
 }

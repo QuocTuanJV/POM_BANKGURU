@@ -89,9 +89,12 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		//Homepage > New Customer > New Account > Deposit > Fund Transfer
 		log.info("TC_03_Open New Customer Page");
 		newCustomerPage = (NewCustomerPageObject)homePageObject.openPageCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_LINK, "New Customer");
-		
+		log.info("TC_03_Verify New Customer Page is Display");
+		verifyTrue(newCustomerPage.isPageDisplayDynamic(driver, "Add New Customer"));
 		log.info("TC_03_Open New Account Page");
 		newAccountPage = (NewAccountPageObject) newCustomerPage.openPageCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_LINK, "New Account");
+		log.info("TC_03_Verify New Account Page is Display");
+		verifyTrue(newAccountPage.isPageDisplayDynamic(driver, "Add new account form"));
 		
 	}
 	

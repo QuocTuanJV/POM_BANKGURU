@@ -167,7 +167,6 @@ public class AbstractPage {
 
 			WebElement element = driver.findElement(By.xpath(locator));
 			boolean status =  element.isDisplayed();
-			System.out.println("STATUS = " + status);
 			return status;
 		}catch(Exception e) {
 			return false;
@@ -326,14 +325,37 @@ public class AbstractPage {
 //		System.out.println("Start time = " + date.toString());
 		overrideGlobalTimeout(driver, shortTimeout);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
-		
-		System.out.println("SIZE = " + elements.size());
 		if(elements.size() == 0) {
 			java.util.Date date1 = new java.util.Date();
 //			System.out.println("End Time: " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
 			return false;			
 		} else if(elements.size() > 0 && elements.get(0).isDisplayed()) {
+			java.util.Date date1 = new java.util.Date();
+//			System.out.println("End Time = " + date1.toString());
+			overrideGlobalTimeout(driver, longTimeout);
+			return true;
+		}
+		else
+		{
+			java.util.Date date1 = new java.util.Date();
+//			System.out.println("End Time = " + date1.toString());
+			overrideGlobalTimeout(driver, longTimeout);
+			return false;
+		}
+	}
+	public boolean isControlDisPlayCustomizeDynamic(WebDriver driver, String locator, String...dynamicValue) {
+		java.util.Date date = new java.util.Date();
+//		System.out.println("Start time = " + date.toString());
+		overrideGlobalTimeout(driver, shortTimeout);
+		locator = String.format(locator, (Object[])dynamicValue);
+		List<WebElement> elements = driver.findElements(By.xpath(locator));
+		if(elements.size() == 0) {
+			java.util.Date date1 = new java.util.Date();
+//			System.out.println("End Time: " + date1.toString());
+			overrideGlobalTimeout(driver, longTimeout);
+			return false;			
+		} else if(elements.size() > 0 && isControlDisplayed(driver, locator)){
 			java.util.Date date1 = new java.util.Date();
 //			System.out.println("End Time = " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
@@ -385,6 +407,7 @@ public class AbstractPage {
 		return false;
 		
 	}
+	// is control undisplay dynamic
 	public boolean isControlUnDisplayedCustomize(WebDriver driver, String locator, String... dynamicValue) {
 		Date date = new Date(0);
 		System.out.println("Start time = " + date.toString());
@@ -471,6 +494,11 @@ public class AbstractPage {
 			return PageFactoryManager.getFundTransferPage(driver);
 		}
 		
+	}
+	
+	public boolean isPageDisplayDynamic(WebDriver driver, String...dynamicValue) {
+		waitToElementVisible(driver, AbstractPageUI.DYNAMIC_VERIFY_PAGE_TEXT, dynamicValue);
+		return isControlDisPlayCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_VERIFY_PAGE_TEXT, dynamicValue);
 	}
 	
 	int shortTimeout = 5;
