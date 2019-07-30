@@ -1,6 +1,8 @@
-2019-07-29 23:17:27,676 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 03 Open New Customer Page
- 2019-07-29 23:17:29,399 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 03 Verify Customer Page Display
- 2019-07-29 23:17:29,486 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-07-29 23:17:29,488 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 03 In put field
- 2019-07-29 23:17:31,419 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 03 Click button submit
+2019-07-30 18:28:50,163 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Customer Page
+ 2019-07-30 18:28:51,278 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Account Page
+ 2019-07-30 18:28:52,675 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Open New Customer Page
+ 2019-07-30 18:28:53,427 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Customer Page Display
+ 2019-07-30 18:28:53,917 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-07-30 18:28:53,918 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 In put field
+ 2019-07-30 18:28:55,465 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Click button submit
  

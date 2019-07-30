@@ -332,15 +332,11 @@ public class AbstractPage {
 			java.util.Date date1 = new java.util.Date();
 //			System.out.println("End Time: " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			System.out.println("FALSE");
-			System.out.println("------------");
 			return false;			
 		} else if(elements.size() > 0 && elements.get(0).isDisplayed()) {
 			java.util.Date date1 = new java.util.Date();
 //			System.out.println("End Time = " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			System.out.println("TRUE");
-			System.out.println("------------");
 			return true;
 		}
 		else
@@ -348,8 +344,6 @@ public class AbstractPage {
 			java.util.Date date1 = new java.util.Date();
 //			System.out.println("End Time = " + date1.toString());
 			overrideGlobalTimeout(driver, longTimeout);
-			System.out.println("TRUE");
-			System.out.println("------------");
 			return false;
 		}
 	}
@@ -424,7 +418,7 @@ public class AbstractPage {
 	
 	//New Customer Undisplay
 	
-	//Dynmic input Text file
+	//Dynmic Page Object/ Page Element/ Page UI
 	
 	public void inputTextFieldDynamic(WebDriver driver,String locator,String sendValue, String...dynamicValue) {
 		locator = String.format(locator, (Object[]) dynamicValue);
@@ -454,6 +448,28 @@ public class AbstractPage {
 		waitToElementVisible(driver, locator, dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
 		javaExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+		
+	}
+	
+	public AbstractPage openPageCustomizeDynamic(WebDriver driver, String locator,String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		waitToElementVisible(driver, locator, dynamicValue);
+		clickToElement(driver, locator, dynamicValue);
+		switch(dynamicValue[0]) {
+		case "Manager" :
+			return PageFactoryManager.getHomePage(driver);
+		case "New Customer" :
+			return PageFactoryManager.getNewCustomerPage(driver);
+		case "Deposit" :
+			return PageFactoryManager.getDepositPage(driver);
+			
+		case "Fund Transfer" :
+			return PageFactoryManager.getFundTransferPage(driver);
+		case "New Account":
+			return PageFactoryManager.getNewAccountPage(driver);		
+		default: 
+			return PageFactoryManager.getFundTransferPage(driver);
+		}
 		
 	}
 	

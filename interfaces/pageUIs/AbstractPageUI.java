@@ -20,7 +20,7 @@ public class AbstractPageUI {
 	
 	//DYNAMIC LINK
 	public static final String DYNAMIC_LINK = "//a[text()='%s']";
-	public static final String DYNAMIC_TEXT_FIELD_LINK = "//input[@name='%s']";//with button
+	public static final String DYNAMIC_TEXT_FIELD_LINK = "//input[@name='%s']";
 	public static final String DYNAMIC_BUTTON_LINK = "//input[@name='%s']";//with button
 	public static final String DYNAMIC_TEXT_AREA_LINK = "//textarea[@name='%s']";
 	public static final String DYNAMIC_RADIO_BUTTON_LINK = "//input[@value ='%s']";
