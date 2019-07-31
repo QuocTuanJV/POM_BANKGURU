@@ -501,6 +501,7 @@ public class AbstractPage {
 		return isControlDisPlayCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_VERIFY_PAGE_TEXT, dynamicValue);
 	}
 	
+	
 	int shortTimeout = 5;
 	int longTimeout = 30;
 	// viet vao de khong loi - khong dung ham nay o day

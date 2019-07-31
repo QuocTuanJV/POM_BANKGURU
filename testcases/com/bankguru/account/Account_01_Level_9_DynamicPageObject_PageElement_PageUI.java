@@ -95,6 +95,11 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		newAccountPage = (NewAccountPageObject) newCustomerPage.openPageCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_LINK, "New Account");
 		log.info("TC_03_Verify New Account Page is Display");
 		verifyTrue(newAccountPage.isPageDisplayDynamic(driver, "Add new account form"));
+		log.info("TC_03_Open Home Page");
+		homePageObject = (HomePageObject)newAccountPage.openPageCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_LINK, "Manager");
+		log.info("TC_03_Verify Home Page is Display");
+		verifyTrue(homePageObject.isPageDisplayDynamic(driver,AbstractPageUI.DYNAMIC_VERIFY_MARQUEE_PAGE_TEXT ,"Welcome To Manager's Page of Guru99 Bank"));
+		
 		
 	}
 	
@@ -127,6 +132,9 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 
 		log.info("TC 04 Click button submit");
 		newCustomerPage.clickButtonDynamic(driver, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
+		log.info("TC 04 Verify Page Customer Registered Successfully");
+		verifyTrue(newCustomerPage.isPageDisplayDynamic(driver, "Customer Registered Successfully!!!"));
+		
 
 	}
 
