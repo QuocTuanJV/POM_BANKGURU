@@ -501,6 +501,12 @@ public class AbstractPage {
 		return isControlDisPlayCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_VERIFY_PAGE_TEXT, dynamicValue);
 	}
 	
+	public String getDataDynamic(WebDriver driver, String...dynamicValue) {
+		By Locator = By.xpath(String.format(AbstractPageUI.DYNAMIC_GET_DATA_CUSTOMER_REGISTERED_TEXT, (Object[]) dynamicValue));
+		waitToElementVisible(driver, AbstractPageUI.DYNAMIC_GET_DATA_CUSTOMER_REGISTERED_TEXT, dynamicValue);
+		return driver.findElement(Locator).getText();
+	}
+	
 	
 	int shortTimeout = 5;
 	int longTimeout = 30;

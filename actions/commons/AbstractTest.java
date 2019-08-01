@@ -120,26 +120,30 @@ public class AbstractTest {
 		return checkFailed(condition);
 	}
 
-	private boolean checkEquals(Object actual, Object expected) {
-		boolean pass = true;
+	private void checkEquals(Object actual, Object expected) {
+		//boolean pass = true;
 		try {
-			if (actual == expected)
-				log.info("===PASS===");
-			else {
-				log.info("===FAILED===");
+			if (actual == expected) {
+				log.info("===PASS===123");
+			    Assert.assertEquals(actual, expected);
 			}
-			Assert.assertEquals(actual, expected);
+			else {
+				log.info("456===FAILED===");
+			}
+			
+			
 		} catch (Throwable e) {
-			pass = false;
+			//pass = false;
 			// add issue in report
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
-		return pass;
+		//return pass;
 	}
 
-	protected boolean verifyEquals(Object actual, Object expected) {
-		return checkEquals(actual, expected);
+	protected void verifyEquals(Object actual, Object expected) {//actual
+		System.out.println(actual + "==" + expected);
+		checkEquals(actual, expected);
 	}
 	
 	protected void closeBrowser (WebDriver driver) {

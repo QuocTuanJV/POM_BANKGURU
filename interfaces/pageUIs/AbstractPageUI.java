@@ -26,6 +26,7 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_RADIO_BUTTON_LINK = "//input[@value ='%s']";
 	public static final String DYNAMIC_VERIFY_PAGE_TEXT= "//p[text()='%s']";
 	public static final String DYNAMIC_VERIFY_MARQUEE_PAGE_TEXT= "//marquee[text()=\"%s\"]";
+	public static final String DYNAMIC_GET_DATA_CUSTOMER_REGISTERED_TEXT= "//td[text()='%s']/following-sibling::td";
 	
 
 }

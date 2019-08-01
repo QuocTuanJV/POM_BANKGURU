@@ -54,7 +54,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		loginPage = PageFactoryManager.getLoginPage(driver);
 		customerName = "Selenium Online";
 		gender = "f";
-		dateOfBirth = "01/01/2019";
+		dateOfBirth = "2019-01-01";
 		address = "258 Le duan";
 		city = "Sai Gon";
 		state = "Thu Duc";
@@ -134,6 +134,36 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		newCustomerPage.clickButtonDynamic(driver, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
 		log.info("TC 04 Verify Page Customer Registered Successfully");
 		verifyTrue(newCustomerPage.isPageDisplayDynamic(driver, "Customer Registered Successfully!!!"));
+		log.info("TC 04 Verify Display Customer ID");
+		
+		log.info("TC 04 Verify Display Customer Name");
+		verifyEquals(customerName,newCustomerPage.getDataDynamic(driver, "Customer Name") );
+		
+		log.info("TC 04 Verify Display Gender");
+		verifyEquals(newCustomerPage.getDataDynamicGender(driver, "Gender"), gender);
+		
+		log.info("TC 04 Verify Display Birthdate");	
+		verifyEquals(dateOfBirth,newCustomerPage.getDataDynamic(driver,"Birthdate"));
+		
+		log.info("TC 04 Verify Display Address");
+		verifyEquals(address,newCustomerPage.getDataDynamic(driver,"Address"));
+		
+		log.info("TC 04 Verify Display City");
+		verifyEquals(city,newCustomerPage.getDataDynamic(driver,"City"));
+		
+		log.info("TC 04 Verify Display State");
+		verifyEquals(state,newCustomerPage.getDataDynamic(driver,"State"));
+		
+		log.info("TC 04 Verify Display Pin");
+		verifyEquals(pin,newCustomerPage.getDataDynamic(driver,"Pin"));
+		
+		log.info("TC 04 Verify Display Mobile No.");
+		verifyEquals(phone,newCustomerPage.getDataDynamic(driver,"Mobile No."));
+		
+		log.info("TC 04 Verify Display Email");
+		verifyEquals(emailNewCustomer,newCustomerPage.getDataDynamic(driver,"Email"));
+		
+		
 		
 
 	}
