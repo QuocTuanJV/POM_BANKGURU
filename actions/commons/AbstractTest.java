@@ -123,14 +123,14 @@ public class AbstractTest {
 	private void checkEquals(Object actual, Object expected) {
 		//boolean pass = true;
 		try {
-			if (actual == expected) {
+			if (actual.equals(expected) ) {
 				log.info("===PASS===123");
-			    Assert.assertEquals(actual, expected);
+			   
 			}
 			else {
 				log.info("456===FAILED===");
 			}
-			
+			 Assert.assertEquals(actual, expected);
 			
 		} catch (Throwable e) {
 			//pass = false;

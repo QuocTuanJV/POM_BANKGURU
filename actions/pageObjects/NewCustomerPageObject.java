@@ -41,7 +41,7 @@ public class NewCustomerPageObject extends AbstractPage {
 		By Locator = By.xpath(
 				String.format(AbstractPageUI.DYNAMIC_GET_DATA_CUSTOMER_REGISTERED_TEXT, (Object[]) dynamicValue));
 		waitToElementVisible(driver, AbstractPageUI.DYNAMIC_GET_DATA_CUSTOMER_REGISTERED_TEXT, dynamicValue);
-		if (driver.findElement(Locator).getText() == "male") 
+		if (driver.findElement(Locator).getText().equals("male")) 
 			return "m";
 		else 
 			return "f";

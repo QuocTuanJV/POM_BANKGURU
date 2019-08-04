@@ -118,7 +118,7 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 		log.info("TC 04 In put field");
 //		newCustomerPage.scrollToElementByJavascript(driver, javaExecutor, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
 		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, customerName, "name");
-		newCustomerPage.inputRadioButtonDynamic(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON_LINK, "f");
+		newCustomerPage.inputRadioButtonDynamic(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON_LINK, "m");
 		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, dateOfBirth, "dob");
 		newCustomerPage.inputTextAreaDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_AREA_LINK, address, "addr");
 		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, city, "city");
