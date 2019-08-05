@@ -30,6 +30,7 @@ public class AbstractTest {
 		if (nameBrowser.equals("firefox")) {
 //			set path to geckodriver with firefox >= 48
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
+//			WebDriverManager.firefoxdriver().arch64().setup();
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			javaExecutor = (JavascriptExecutor) driver;
@@ -39,7 +40,7 @@ public class AbstractTest {
 //			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
 //			System.setProperty("webdriver.opera.driver", ".\\lib\\operadriver.exe");
 //			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			javaExecutor = (JavascriptExecutor) driver;
 		} else if (nameBrowser.equals("chromeheadless")) {

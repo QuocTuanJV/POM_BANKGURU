@@ -24,9 +24,8 @@
 <!-- 	<test name="Run on Chrome"> -->
 <!-- 	<parameter name="browser" value ="chrome"/> -->
 <!-- 	<classes> -->
-<!-- 	<class name="com.bankguru.account.Account_01_Register_Login_Global"></class> -->
-<!-- 	<class name="com.bankguru.account.Account_01_Level_6_DynamicLocator_RestParameter"></class> -->
-<!-- 	<class name="com.bankguru.account.Account_01_Level_8_Assert_Verify_Log_Report"></class> -->
+<!-- 	<class name="com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI"></class> -->
+	
 
 <!-- 	</classes> -->
 

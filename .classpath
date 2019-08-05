@@ -5,7 +5,6 @@
 	<classpathentry kind="src" path="actions"/>
 	<classpathentry kind="src" path="interfaces"/>
 	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.53.1.jar"/>
 	<classpathentry kind="lib" path="lib/bsh-2.0b4.jar"/>
 	<classpathentry kind="lib" path="lib/bson-3.0.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.5.jar"/>
@@ -30,5 +29,6 @@
 	<classpathentry kind="lib" path="lib/testng-6.9.9.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-dep-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/webdrivermanager-2.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.14.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,36 +1,36 @@
-2019-08-04 22:24:24,938 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Customer Page
- 2019-08-04 22:24:26,401 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify New Customer Page is Display
- 2019-08-04 22:24:26,812 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-08-04 22:24:26,814 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Account Page
- 2019-08-04 22:24:28,402 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify New Account Page is Display
- 2019-08-04 22:24:28,919 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-08-04 22:24:28,919 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open Home Page
- 2019-08-04 22:24:30,632 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify Home Page is Display
- 2019-08-04 22:24:31,401 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-08-04 22:24:31,402 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Open New Customer Page
- 2019-08-04 22:24:32,445 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Customer Page Display
- 2019-08-04 22:24:32,837 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-08-04 22:24:32,838 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 In put field
- 2019-08-04 22:24:34,781 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Click button submit
- 2019-08-04 22:24:36,775 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Page Customer Registered Successfully
- 2019-08-04 22:24:37,235 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
- 2019-08-04 22:24:37,235 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Customer ID
- 2019-08-04 22:24:37,235 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Customer Name
- 2019-08-04 22:24:37,310 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,310 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Gender
- 2019-08-04 22:24:37,369 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - 456===FAILED===
- 2019-08-04 22:24:37,370 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Birthdate
- 2019-08-04 22:24:37,416 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,416 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Address
- 2019-08-04 22:24:37,458 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,458 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display City
- 2019-08-04 22:24:37,501 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,501 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display State
- 2019-08-04 22:24:37,543 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,543 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Pin
- 2019-08-04 22:24:37,588 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,588 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Mobile No.
- 2019-08-04 22:24:37,633 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
- 2019-08-04 22:24:37,633 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Email
- 2019-08-04 22:24:37,675 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+2019-08-05 18:28:26,643 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Customer Page
+ 2019-08-05 18:28:27,565 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify New Customer Page is Display
+ 2019-08-05 18:28:27,637 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-08-05 18:28:27,639 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open New Account Page
+ 2019-08-05 18:28:28,217 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify New Account Page is Display
+ 2019-08-05 18:28:28,320 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-08-05 18:28:28,320 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Open Home Page
+ 2019-08-05 18:28:29,190 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC_03_Verify Home Page is Display
+ 2019-08-05 18:28:29,278 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-08-05 18:28:29,279 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Open New Customer Page
+ 2019-08-05 18:28:29,602 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Customer Page Display
+ 2019-08-05 18:28:29,705 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-08-05 18:28:29,705 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 In put field
+ 2019-08-05 18:28:30,543 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Click button submit
+ 2019-08-05 18:28:32,509 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Page Customer Registered Successfully
+ 2019-08-05 18:28:32,633 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===
+ 2019-08-05 18:28:32,633 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Customer ID
+ 2019-08-05 18:28:32,633 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Customer Name
+ 2019-08-05 18:28:32,674 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,674 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Gender
+ 2019-08-05 18:28:32,713 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - 456===FAILED===
+ 2019-08-05 18:28:32,714 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Birthdate
+ 2019-08-05 18:28:32,751 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,752 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Address
+ 2019-08-05 18:28:32,811 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,811 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display City
+ 2019-08-05 18:28:32,860 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,860 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display State
+ 2019-08-05 18:28:32,897 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,897 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Pin
+ 2019-08-05 18:28:32,929 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,929 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Mobile No.
+ 2019-08-05 18:28:32,962 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
+ 2019-08-05 18:28:32,962 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - TC 04 Verify Display Email
+ 2019-08-05 18:28:32,998 INFO  com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI - ===PASS===123
  
