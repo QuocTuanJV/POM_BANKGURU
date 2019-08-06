@@ -10,7 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -21,6 +24,8 @@ public class AbstractTest {
 	private WebDriver driver;
 	protected JavascriptExecutor javaExecutor;
 	protected final Log log;
+	//Get project path: D:\workspace\POM_BANKGURU
+	private final String workingDir = System.getProperty("user.dir");
 
 	protected AbstractTest() {
 		log = LogFactory.getLog(getClass());
@@ -31,21 +36,40 @@ public class AbstractTest {
 //			set path to geckodriver with firefox >= 48
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\geckodriver.exe");
 //			WebDriverManager.firefoxdriver().arch64().setup();
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			WebDriverManager.firefoxdriver().arch64().setup();
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
+			FirefoxOptions options = new FirefoxOptions();
+			driver = new FirefoxDriver(options);
 			javaExecutor = (JavascriptExecutor) driver;
 			
-		} else if (nameBrowser.equals("chrome")) {
+		} else if(nameBrowser.equals("firefoxheadless")) {
+			WebDriverManager.firefoxdriver().arch64().setup();
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
+			FirefoxOptions options = new FirefoxOptions();
+			options.setHeadless(true);
+			driver = new FirefoxDriver(options);
+			javaExecutor = (JavascriptExecutor) driver;
+		}
+		else if (nameBrowser.equals("chrome")) {
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 //			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
 //			System.setProperty("webdriver.opera.driver", ".\\lib\\operadriver.exe");
 //			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+//			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");
+			options.addArguments("--disable-extensions");
+			options.addArguments("--incognito");
+//			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//			driver = new ChromeDriver(capabilities);
+			driver = new ChromeDriver(options);
 			javaExecutor = (JavascriptExecutor) driver;
 		} else if (nameBrowser.equals("chromeheadless")) {
 //			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
 			options.addArguments("window-size=1366x768");
@@ -53,7 +77,12 @@ public class AbstractTest {
 			javaExecutor = (JavascriptExecutor) driver;
 			
 		} else if (nameBrowser.equals("internetexplorer")) {
-			WebDriverManager.iedriver().arch64().setup();
+			WebDriverManager.iedriver().arch32().setup();
+			
+			
+			InternetExplorerOptions options = new InternetExplorerOptions();
+		
+			
 			driver = new InternetExplorerDriver();
 			javaExecutor = (JavascriptExecutor) driver;
 		}
