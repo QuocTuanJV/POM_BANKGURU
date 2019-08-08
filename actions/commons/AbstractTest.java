@@ -181,8 +181,9 @@ public class AbstractTest {
 			//Detect Os (Windows/ Linux/ MAC)
 			String osName = System.getProperty("os.name").toLowerCase();
 			String cmd = "";
+			driver.manage().deleteAllCookies();
 			driver.quit();
-			//Chrome
+			//DELETE PROCESS IN TASK MANAGE Chrome
 			if(driver.toString().toLowerCase().contains("chrome")) {
 				//Kill process
 				if(osName.toLowerCase().contains("mac")) {
