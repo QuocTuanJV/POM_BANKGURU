@@ -26,7 +26,7 @@ import pageObjects.PageFactoryManager;
 import pageObjects.RegisterPageObject;
 import pageUIs.AbstractPageUI;
 
-public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends AbstractTest {
+public class Account_01_Video27_Setup_IE11_By_Function_Click extends AbstractTest {
 
 	private WebDriver driver;
 	private String emailRegister;
@@ -104,69 +104,6 @@ public class Account_01_Level_9_DynamicPageObject_PageElement_PageUI extends Abs
 	}
 	
 
-	@Test(description = "Create New Customer")
-	public void TC_04_DynamicPageObjectPageElementPageUI() {
-		// Home Page > New Customer
-		log.info("TC 04 Open New Customer Page");
-		newCustomerPage = (NewCustomerPageObject) homePageObject.openPageCustomizeDynamic(driver, AbstractPageUI.DYNAMIC_LINK, "New Customer");
-
-		// Verify Page New Customer is Display
-		log.info("TC 04 Verify Customer Page Display");
-		verifyTrue(newCustomerPage.isNewCustomerDisplay());
-
-		// Input field
-		log.info("TC 04 In put field");
-		newCustomerPage.scrollToElementByJavascript(driver, javaExecutor, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, customerName, "name");
-		newCustomerPage.inputRadioButtonDynamic(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON_LINK, "m");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, dateOfBirth, "dob");
-		newCustomerPage.inputTextAreaDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_AREA_LINK, address, "addr");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, city, "city");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, state, "state");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, pin, "pinno");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, phone, "telephoneno");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, emailNewCustomer,
-				"emailid");
-		newCustomerPage.inputTextFieldDynamic(driver, AbstractPageUI.DYNAMIC_TEXT_FIELD_LINK, passwordNewCustomer,
-				"password");
-
-		log.info("TC 04 Click button submit");
-		newCustomerPage.clickButtonDynamic(driver, AbstractPageUI.DYNAMIC_BUTTON_LINK, "sub");
-		log.info("TC 04 Verify Page Customer Registered Successfully");
-		verifyTrue(newCustomerPage.isPageDisplayDynamic(driver, "Customer Registered Successfully!!!"));
-		log.info("TC 04 Verify Display Customer ID");
-		
-		log.info("TC 04 Verify Display Customer Name");
-		verifyEquals(customerName,newCustomerPage.getDataDynamic(driver, "Customer Name") );
-		
-		log.info("TC 04 Verify Display Gender");
-		verifyEquals(newCustomerPage.getDataDynamicGender(driver, "Gender"), gender);
-		
-		log.info("TC 04 Verify Display Birthdate");	
-		verifyEquals(dateOfBirth,newCustomerPage.getDataDynamic(driver,"Birthdate"));
-		
-		log.info("TC 04 Verify Display Address");
-		verifyEquals(address,newCustomerPage.getDataDynamic(driver,"Address"));
-		
-		log.info("TC 04 Verify Display City");
-		verifyEquals(city,newCustomerPage.getDataDynamic(driver,"City"));
-		
-		log.info("TC 04 Verify Display State");
-		verifyEquals(state,newCustomerPage.getDataDynamic(driver,"State"));
-		
-		log.info("TC 04 Verify Display Pin");
-		verifyEquals(pin,newCustomerPage.getDataDynamic(driver,"Pin"));
-		
-		log.info("TC 04 Verify Display Mobile No.");
-		verifyEquals(phone,newCustomerPage.getDataDynamic(driver,"Mobile No."));
-		
-		log.info("TC 04 Verify Display Email");
-		verifyEquals(emailNewCustomer,newCustomerPage.getDataDynamic(driver,"Email"));
-		
-		
-		
-
-	}
 
 	@AfterClass
 	public void afterClass() {

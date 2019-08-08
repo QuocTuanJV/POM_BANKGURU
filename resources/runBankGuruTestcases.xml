@@ -10,10 +10,10 @@
 	</listeners>
 
 	<test name="Run on Firefox">
-		<parameter name="browser" value="internetexplorer" />
+		<parameter name="browser" value="firefox" />
 		<classes>
 			<class
-				name="com.bankguru.account.Account_01_Level_9_DynamicPageObject_PageElement_PageUI"></class>
+				name="com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click"></class>
 
 
 		</classes>
