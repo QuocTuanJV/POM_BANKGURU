@@ -1,0 +1,18 @@
+{
+	"NewCustomer": {
+		"customerName": "Dao Minh",
+		"dateOfBirth": "Dam",
+		"address": "01/01/1986",
+		"city": "automa",
+		"state": "123 Nguyen Van Linh",
+		"pin": "123 Nguyen Van Linh",
+		"phone": "123 Nguyen Van Linh"
+	},
+	"EditCustomer": {
+		"firstname": "Dao Minh",
+		"lastname": "Dam",
+		"dob": "01/01/1986",
+		"email": "automa",
+		"address": "123 Nguyen Van Linh"
+	}
+}

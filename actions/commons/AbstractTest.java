@@ -53,11 +53,9 @@ public class AbstractTest {
 			javaExecutor = (JavascriptExecutor) driver;
 		}
 		else if (nameBrowser.equals("chrome")) {
-//			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
-//			System.setProperty("webdriver.ie.driver", ".\\lib\\iedriver.exe");
-//			System.setProperty("webdriver.opera.driver", ".\\lib\\operadriver.exe");
-//			System.setProperty("webdriver.edge.driver", ".\\lib\\edgedriver.exe");
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
+
+//			WebDriverManager.chromedriver().setup();
 //			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("disable-infobars");

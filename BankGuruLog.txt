@@ -1,10 +1,36 @@
-2019-08-08 18:27:54,052 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Open New Customer Page
- 2019-08-08 18:27:54,670 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Verify New Customer Page is Display
- 2019-08-08 18:27:54,878 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - ===PASS===
- 2019-08-08 18:27:54,880 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Open New Account Page
- 2019-08-08 18:27:55,569 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Verify New Account Page is Display
- 2019-08-08 18:27:55,656 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - ===PASS===
- 2019-08-08 18:27:55,656 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Open Home Page
- 2019-08-08 18:27:56,353 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - TC_03_Verify Home Page is Display
- 2019-08-08 18:27:56,446 INFO  com.bankguru.account.Account_01_Video27_Setup_IE11_By_Function_Click - ===PASS===
+2019-08-18 17:47:03,650 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Open New Customer Page
+ 2019-08-18 17:47:04,335 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Verify New Customer Page is Display
+ 2019-08-18 17:47:04,472 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===
+ 2019-08-18 17:47:04,474 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Open New Account Page
+ 2019-08-18 17:47:05,194 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Verify New Account Page is Display
+ 2019-08-18 17:47:05,329 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===
+ 2019-08-18 17:47:05,330 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Open Home Page
+ 2019-08-18 17:47:06,003 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC_03_Verify Home Page is Display
+ 2019-08-18 17:47:06,163 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===
+ 2019-08-18 17:47:06,165 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Open New Customer Page
+ 2019-08-18 17:47:06,674 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Customer Page Display
+ 2019-08-18 17:47:06,799 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===
+ 2019-08-18 17:47:06,800 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 In put field
+ 2019-08-18 17:47:08,289 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Click button submit
+ 2019-08-18 17:47:09,580 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Page Customer Registered Successfully
+ 2019-08-18 17:47:09,711 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===
+ 2019-08-18 17:47:09,712 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Customer ID
+ 2019-08-18 17:47:09,712 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Customer Name
+ 2019-08-18 17:47:09,783 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:09,783 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Gender
+ 2019-08-18 17:47:09,852 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - 456===FAILED===
+ 2019-08-18 17:47:09,853 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Birthdate
+ 2019-08-18 17:47:09,906 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - 456===FAILED===
+ 2019-08-18 17:47:09,906 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Address
+ 2019-08-18 17:47:09,962 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:09,962 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display City
+ 2019-08-18 17:47:10,014 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:10,014 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display State
+ 2019-08-18 17:47:10,068 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:10,068 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Pin
+ 2019-08-18 17:47:10,124 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:10,124 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Mobile No.
+ 2019-08-18 17:47:10,194 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
+ 2019-08-18 17:47:10,195 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - TC 04 Verify Display Email
+ 2019-08-18 17:47:10,247 INFO  com.bankguru.account.Account_01_Video29__ManageTestData_level_01 - ===PASS===123
  
