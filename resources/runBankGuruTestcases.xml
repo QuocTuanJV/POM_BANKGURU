@@ -23,13 +23,13 @@
 
 	<test name="Run on Chrome">
 	<parameter name="browser" value ="chrome"/>
-	<classes>
-	<class name="com.bankguru.account.Account_01_Video29__ManageTestData_level_01"></class>
 	
-
+	<parameter name ="customer" value =".\\testdata\\com\\bankguru\\account\\Customer.json"/>
+	
+	<classes>
+	<class name="com.bankguru.account.Account_01_Video29__ManageTestData_JASON"></class>
 	</classes>
-
-
+	
 	</test>
 
 	<!-- <test name="Run on Chrome Headless"> -->

@@ -1,5 +1,6 @@
 package com.bankguru.account;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +14,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 import commons.AbstractPage;
 import commons.AbstractTest;
@@ -44,24 +48,39 @@ public class Account_01_Video29__ManageTestData_JASON extends AbstractTest {
 
 	private String customerName, gender, dateOfBirth, address, city, state, pin, phone, emailNewCustomer,
 			passwordNewCustomer;
+	
+	private CustomerDataJson data;
+	
 
-	@Parameters("browser")
+	@Parameters({"browser", "customer" })
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String customerPath) throws JsonParseException, JsonMappingException, IOException {
 		emailRegister = "luongtuan" + randomNumber() + "@gmail.com";
-		
+		data = CustomerDataJson.get(customerPath);
 		driver = openMultiBrowser(browserName);
 		loginPage = PageFactoryManager.getLoginPage(driver);
-		customerName = "Selenium Online";
-		gender = "f";
-		dateOfBirth = "2019-01-01";
-		address = "258 Le duan";
-		city = "Sai Gon";
-		state = "Thu Duc";
-		pin = "362562";
-		phone = "01234567899";
-		emailNewCustomer = "TUANLQ" + randomNumber() + "@gmail.com";
+//		customerName = "Selenium Online";
+//		gender = "f";
+//		dateOfBirth = "2019-01-01";
+//		address = "258 Le duan";
+//		city = "Sai Gon";
+//		state = "Thu Duc";
+//		pin = "362562";
+//		phone = "01234567899";
+//		emailNewCustomer = "TUANLQ" + randomNumber() + "@gmail.com";
+//		passwordNewCustomer = "12345678";
+		customerName = data.getCustomerName();
+		gender = data.getGender();
+		dateOfBirth = data.getDateOfBirth();
+		address = data.getAddress();
+		city = data.getCity();
+		state = data.getState();
+		pin = data.getPin();
+		phone = data.getPhone();
+		emailNewCustomer = data.getEmailNewCustomer();
 		passwordNewCustomer = "12345678";
+		
+		
 
 	}
 
